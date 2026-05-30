@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Serbia Air Quality WebGIS</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="assets/css/animate.css">
+  <link rel="stylesheet" href="assets/css/magnific-popup.css">
+  <link rel="stylesheet" href="assets/css/bootstrap.css">
+  <link rel="stylesheet" href="assets/css/icomoon.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/custom-styles.css">
+</head>
+
+<body>
+  <div id="fh5co-wrap">
+
+    <header id="fh5co-header">
+      <div class="container">
+        <nav class="fh5co-main-nav">
+          <ul>
+            <li class="fh5co-active"><a href="index.html"><span>Home</span></a></li>
+            <li><a href="pages/workflow.html"><span>Workflow</span></a></li>
+            <li><a href="pages/results.html"><span>Results</span></a></li>
+            <li><a href="pages/webgis.html"><span>WebMap</span></a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="fh5co-hero project-hero" style="background-image: url(images/hero_1.jpg);">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1 text-center hero-content">
+            <h1>Serbia Air Quality WebGIS</h1>
+            <p>
+              Mapping air quality, land cover transitions and population exposure using QGIS,
+              GeoServer and OpenLayers.
+            </p>
+            <a class="project-btn primary" href="pages/webgis.html">Open WebMap</a>
+            <a class="project-btn outline" href="pages/workflow.html">View Workflow</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project overview -->
+    <section class="fh5co-section">
+      <div class="container">
+        <div class="row project-overview-row">
+          <div class="col-md-6">
+            <h2>Project Overview</h2>
+            <p>
+              This project investigates air quality patterns in Serbia by combining CAMS European Air Quality
+              Reanalysis data, ESRI 10m Annual Land Cover maps and WorldPop population counts. The final outputs
+              are published through an interactive WebGIS to support spatial exploration of pollution trends, land
+              cover change and population exposure.
+            </p>
+            <p>
+              The workflow focuses on three pollutants: NO₂, PM2.5 and PM10. It includes annual mean aggregation
+              change, land cover transition analysis, zonal statistics and bivariate exposure mapping.
+            </p>
+          </div>
+          <div class="col-md-6">
+            <img src="images/hero_2.jpg" alt="Serbia geospatial analysis" class="img-responsive img-card">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Parallax -->
+    <section class="fh5co-parallax project-parallax" style="background-image: url(images/hero_3.jpg);">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1 text-center parallax-content">
+            <h2>From GIS processing to web mapping</h2>
+            <p>
+              Raster and vector outputs were processed in QGIS, published through GeoServer and visualized with
+              OpenLayers.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main components -->
+    <section class="fh5co-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2 text-center section-heading">
+            <h2>Main Components</h2>
+            <p>The website is organized into three analytical sections and one interactive map interface.</p>
+          </div>
+        </div>
+
+        <div class="row component-row">
+          <div class="col-md-4">
+            <article class="feature-card">
+              <div class="fh5co-icon">01</div>
+              <h3>Workflow</h3>
+              <p>Explains the data sources, preprocessing operations and GIS processing steps used to produce the outputs.</p>
+              <a href="pages/workflow.html">Read workflow →</a>
+            </article>
+          </div>
+
+          <div class="col-md-4">
+            <article class="feature-card">
+              <div class="fh5co-icon">02</div>
+              <h3>Results</h3>
+              <p>Presents maps, tables and interpretation for air quality change, land cover change and population exposure.</p>
+              <a href="pages/results.html">View results →</a>
+            </article>
+          </div>
+
+          <div class="col-md-4">
+            <article class="feature-card">
+              <div class="fh5co-icon">03</div>
+              <h3>WebMap</h3>
+              <p>Allows users to switch layers, inspect legends and explore the spatial outputs of the project.</p>
+              <a href="pages/webgis.html">Open map →</a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key outputs -->
+    <section class="fh5co-section light-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2 text-center section-heading">
+            <h2>Key Outputs</h2>
+          </div>
+        </div>
+
+        <div class="row output-row">
+          <div class="col-md-4">
+            <div class="output-card">
+              <strong>Air Quality</strong>
+              <p>NO₂, PM2.5 and PM10 AMAC maps, concentration maps and zonal statistics.</p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="output-card">
+              <strong>Land Cover</strong>
+              <p>Serbia land cover transition map between 2021 and 2023.</p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="output-card">
+              <strong>Exposure</strong>
+              <p>Bivariate maps combining population class and pollutant severity class.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team members -->
+    <section class="fh5co-section team-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2 text-center section-heading">
+            <h2>Team Members</h2>
+            <p>
+              The project was developed collaboratively, with each member contributing to data processing,
+              analysis, visualization and WebGIS implementation.
+            </p>
+          </div>
+        </div>
+
+        <div class="row team-row">
+          <div class="col-md-4 col-sm-6">
+            <article class="team-card">
+              <img src="images/person2.jpg" alt="Team member 1" class="team-photo">
+              <h3>Member 1 Name</h3>
+              <p class="team-role">Air Quality Analysis</p>
+              <p>Responsible for CAMS pollutant processing, AMAC maps and interpretation of air quality patterns.</p>
+            </article>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <article class="team-card">
+              <img src="images/person3.jpg" alt="Team member 2" class="team-photo">
+              <h3>Member 2 Name</h3>
+              <p class="team-role">Land Cover Change</p>
+              <p>Responsible for ESRI land cover preprocessing, transition matrix and stability/gain/loss analysis.</p>
+            </article>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <article class="team-card">
+              <img src="images/person4.jpg" alt="Team member 3" class="team-photo">
+              <h3>Member 3 Name</h3>
+              <p class="team-role">Population Exposure & WebGIS</p>
+              <p>Responsible for WorldPop exposure assessment, bivariate maps and OpenLayers WebGIS integration.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer id="fh5co-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Serbia Air Quality WebGIS</h3>
+        <p>GIS Laboratory Project | Politecnico di Milano</p>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="pages/workflow.html">Workflow</a></li>
+          <li><a href="pages/results.html">Results</a></li>
+          <li><a href="pages/webgis.html">WebMap</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.easing.1.3.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/jquery.waypoints.min.js"></script>
+  <script src="assets/js/jquery.stellar.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

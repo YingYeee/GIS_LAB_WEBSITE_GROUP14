@@ -1,0 +1,419 @@
+/* Project-specific CSS for Serbia Air Quality WebGIS.
+   Loaded after the original FreeHTML5 template CSS. */
+
+:root {
+  --project-blue: #0f3d4c;
+  --project-teal: #2a9d8f;
+  --project-light: #f6f8f9;
+  --project-text: #263238;
+  --project-muted: #66757f;
+}
+
+body {
+  font-family: "Work Sans", Arial, sans-serif;
+  color: var(--project-text);
+}
+
+#fh5co-header {
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  position: relative;
+  z-index: 20;
+}
+
+#fh5co-header .fh5co-main-nav ul li a {
+  color: #12333d;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+#fh5co-header .fh5co-main-nav ul li.fh5co-active a span,
+#fh5co-header .fh5co-main-nav ul li a:hover span {
+  color: var(--project-teal);
+}
+
+/* Hero */
+.project-hero {
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+}
+
+.project-hero .overlay,
+.project-parallax .overlay {
+  background: rgba(5, 35, 45, 0.62);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  padding-top: 115px;
+  padding-bottom: 95px;
+}
+
+.hero-content h1 {
+  font-size: 56px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: white;
+}
+
+.hero-content p {
+  max-width: 820px;
+  margin: 0 auto 28px auto;
+  font-size: 19px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.94);
+}
+
+.project-btn {
+  border-radius: 3px;
+  padding: 12px 22px;
+  margin: 6px;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.project-btn.primary {
+  background: var(--project-teal);
+  border: 1px solid var(--project-teal);
+  color: white !important;
+}
+
+.project-btn.outline {
+  border: 1px solid rgba(255,255,255,0.85);
+  color: white !important;
+}
+
+/* Sections */
+.fh5co-section {
+  padding: 80px 0;
+}
+
+.light-bg {
+  background: var(--project-light);
+}
+
+.project-overview-row {
+  display: flex;
+  align-items: center;
+}
+
+.project-overview-row h2,
+.section-heading h2 {
+  font-weight: 600;
+}
+
+.project-overview-row p,
+.section-heading p,
+.feature-card p,
+.output-card p,
+.team-card p {
+  color: var(--project-muted);
+  line-height: 1.75;
+}
+
+.img-card {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+}
+
+.project-parallax {
+  min-height: 360px;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.parallax-content {
+  position: relative;
+  z-index: 2;
+  padding: 105px 0;
+}
+
+.parallax-content h2,
+.parallax-content p {
+  color: white;
+}
+
+.section-heading {
+  margin-bottom: 45px;
+}
+
+.section-heading h2 {
+  font-size: 34px;
+  margin-bottom: 12px;
+}
+
+/* Cards */
+.component-row,
+.output-row,
+.team-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.feature-card,
+.output-card,
+.team-card {
+  height: 100%;
+  background: white;
+  padding: 28px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.07);
+  box-shadow: 0 8px 26px rgba(0,0,0,0.06);
+  margin-bottom: 28px;
+}
+
+.feature-card h3,
+.team-card h3 {
+  font-weight: 600;
+  margin-top: 14px;
+}
+
+.fh5co-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--project-blue);
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.output-card {
+  border-left: 4px solid var(--project-teal);
+}
+
+.output-card strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--project-blue);
+  font-size: 17px;
+}
+
+/* Team */
+.team-section {
+  background: white;
+}
+
+.team-card {
+  text-align: center;
+}
+
+.team-photo {
+  width: 128px;
+  height: 128px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto 18px auto;
+  display: block;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.15);
+}
+
+.team-role {
+  color: var(--project-teal) !important;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* Footer */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+#fh5co-footer ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Keep page subpages compatible with earlier files */
+.feature-grid,
+.output-grid,
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 42px;
+  align-items: center;
+}
+
+.result-card,
+.timeline-card {
+  background: white;
+  padding: 28px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.07);
+  box-shadow: 0 8px 26px rgba(0,0,0,0.06);
+}
+
+.result-card img {
+  width: 100%;
+  min-height: 210px;
+  object-fit: cover;
+  background: #e9eef0;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+}
+
+/* WebMap support */
+.map-container-wide {
+  width: 95%;
+  max-width: 1400px;
+}
+
+.map-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 18px;
+  align-items: stretch;
+}
+
+#map {
+  height: 720px;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.12);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+}
+
+.legend-panel {
+  background: white;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.12);
+  padding: 20px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+  max-height: 720px;
+  overflow: auto;
+}
+
+.legend-panel.is-collapsed #legend-content {
+  display: none;
+}
+
+.legend-toggle {
+  float: right;
+  border: 0;
+  background: var(--project-teal);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+.legend-row {
+  margin: 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.legend-swatch {
+  display: inline-block;
+  width: 28px;
+  height: 18px;
+  border: 1px solid #999;
+}
+
+.legend-swatch.decrease { background: #4575b4; }
+.legend-swatch.neutral { background: #ffffbf; }
+.legend-swatch.increase { background: #d73027; }
+
+.ol-control button {
+  background-color: var(--project-blue) !important;
+}
+
+.custom-control {
+  position: absolute;
+  bottom: 32px;
+  right: 16px;
+  background: white;
+  border: 2px solid var(--project-teal);
+  padding: 8px 10px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.zoom-serbia {
+  position: absolute;
+  top: 72px;
+  left: 8px;
+  z-index: 10;
+  background: var(--project-teal);
+  color: white;
+  border: 0;
+  border-radius: 3px;
+  padding: 8px 12px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.ol-popup {
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.25);
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #cccccc;
+  bottom: 12px;
+  left: -50px;
+  min-width: 240px;
+}
+
+.ol-popup-closer {
+  text-decoration: none;
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  font-size: 20px;
+}
+
+@media (max-width: 991px) {
+  .project-overview-row {
+    display: block;
+  }
+
+  .project-overview-row .col-md-6:first-child {
+    margin-bottom: 30px;
+  }
+
+  .hero-content h1 {
+    font-size: 38px;
+  }
+
+  .two-col,
+  .feature-grid,
+  .output-grid,
+  .result-grid,
+  .footer-grid,
+  .map-layout {
+    grid-template-columns: 1fr;
+  }
+
+  #map {
+    height: 520px;
+  }
+
+  .legend-panel {
+    max-height: none;
+  }
+}
