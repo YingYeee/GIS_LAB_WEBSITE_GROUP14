@@ -202,7 +202,6 @@ body {
   color: var(--project-blue);
   font-size: 17px;
 }
-
 /* Team */
 .team-section {
   background: white;
@@ -210,6 +209,7 @@ body {
 
 .team-card {
   text-align: center;
+  padding: 32px 28px;
 }
 
 .team-photo {
@@ -222,10 +222,18 @@ body {
   box-shadow: 0 8px 22px rgba(0,0,0,0.15);
 }
 
+.team-background {
+  color: #6f7d86;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin: 16px 0 26px 0;
+}
+
 .team-role {
   color: var(--project-teal) !important;
   font-weight: 600;
-  margin-bottom: 10px;
+  margin-bottom: 0;
+  line-height: 1.6;
 }
 
 /* Footer */
@@ -416,4 +424,38 @@ body {
   .legend-panel {
     max-height: none;
   }
+}
+.webmap-intro {
+  padding: 45px 0 25px 0;
+  background: var(--project-light);
+}
+
+.webmap-intro h1 {
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--project-blue);
+  margin-bottom: 12px;
+}
+
+.webmap-intro p {
+  max-width: 760px;
+  margin: 0 auto;
+  color: var(--project-muted);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.map-section {
+  padding-top: 45px;
+}
+
+.map-wrapper {
+  position: relative;
+}
+
+.zoom-serbia {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 1000;
 }
