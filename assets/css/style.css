@@ -5,12 +5,7 @@
   font-weight: normal;
   font-style: normal;
 }
-/* =======================================================
-*
-* 	Template Style 
-*	Edit this section
-*
-* ======================================================= */
+
 body {
   font-family: "Work Sans", Arial, sans-serif;
   font-weight: 300;
@@ -71,7 +66,7 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   background: #fff;
   z-index: 2;
-  margin-bottom: 450px;
+  margin-bottom: 550px;
 }
 @media screen and (max-width: 992px) {
   #fh5co-wrap {
@@ -86,7 +81,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   width: 100%;
   z-index: 1;
-  height: 450px;
+  min-height: 450px;
   background: #333333;
   font-size: 18px;
 }

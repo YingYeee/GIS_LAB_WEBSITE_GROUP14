@@ -243,9 +243,8 @@ body {
   gap: 28px;
 }
 
-#fh5co-footer ul {
-  list-style: none;
-  padding-left: 0;
+#fh5co-footer ul li {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 /* Keep page subpages compatible with earlier files */
@@ -363,8 +362,8 @@ body {
 
 .zoom-serbia {
   position: absolute;
-  top: 72px;
-  left: 8px;
+  top: 20px;
+  left: 50px; 
   z-index: 10;
   background: var(--project-teal);
   color: white;
@@ -412,7 +411,6 @@ body {
   .feature-grid,
   .output-grid,
   .result-grid,
-  .footer-grid,
   .map-layout {
     grid-template-columns: 1fr;
   }
@@ -453,9 +451,3 @@ body {
   position: relative;
 }
 
-.zoom-serbia {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  z-index: 1000;
-}
