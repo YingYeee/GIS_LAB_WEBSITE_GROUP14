@@ -9,7 +9,6 @@ import { ScaleLine, FullScreen, MousePosition, OverviewMap } from 'ol/control';
 import { createStringXY } from 'ol/coordinate';
 import LayerSwitcher from 'ol-layerswitcher';
 
-// ─── GeoServer connection ────────────────────────────────────────────────────
 const geoserverWmsUrl = 'https://www.gis-geoserver.polimi.it/geoserver/wms';
 const WS = 'gisgeoserver_14';
 
