@@ -14,6 +14,12 @@ body {
   color: var(--project-text);
 }
 
+p {
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
+}
+
 #fh5co-header {
   background: rgba(255, 255, 255, 0.96);
   border-bottom: 1px solid rgba(0,0,0,0.06);
@@ -59,7 +65,7 @@ body {
   font-size: 56px;
   font-weight: 700;
   margin-bottom: 18px;
-  color: white;
+  color: #ffffff;
 }
 
 .hero-content p {
@@ -68,6 +74,18 @@ body {
   font-size: 19px;
   line-height: 1.7;
   color: rgba(255,255,255,0.94);
+}
+
+.workflow-hero .hero-content h1 {
+  color: #ffffff;
+  -webkit-text-fill-color: #ffffff;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.42);
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.45));
+}
+
+.workflow-hero .hero-content p {
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.42);
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.45));
 }
 
 .project-btn {

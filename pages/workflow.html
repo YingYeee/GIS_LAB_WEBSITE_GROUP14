@@ -32,88 +32,482 @@
 </header>
 
 
-    <section class="fh5co-hero page-hero" style="background-image: url(../images/hero_2.jpg);">
+  <section class="fh5co-hero project-hero workflow-hero" style="background-image: url('../images/background-workflow.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
       <div class="overlay"></div>
       <div class="container hero-content">
         <h1>Workflow</h1>
-        <p>Step-by-step methodology from data acquisition to WebGIS publication.</p>
+        <p>Step-by-step methodology for analysing air pollution change, land cover transition and population exposure in Serbia.</p>
       </div>
     </section>
+
+    
+
+<section class="pollutants-tree-section">
+  <div class="container">
+    <h2>Air Pollutants Analysed</h2>
+
+    <p class="tree-intro">
+      This project focuses on three major air pollutants in Serbia: PM10, PM2.5 and NO₂.
+      These pollutants were analysed to examine their spatial distribution, annual concentration
+      patterns, changes between 2021 and 2023, and their relationship with population exposure.
+    </p>
+
+    <div class="tree-wrapper">
+      <div class="tree-root">Air Pollution Analysis</div>
+
+      <div class="tree-lines">
+        <div class="vertical-line"></div>
+        <div class="horizontal-line"></div>
+      </div>
+
+      <div class="tree-branches">
+  <div class="branch-card">
+    <div class="branch-circle">NO₂</div>
+    <p>
+      A gaseous pollutant mainly associated with traffic emissions, combustion
+      processes and industrial activities.
+    </p>
+  </div>
+
+  <div class="branch-card">
+    <div class="branch-circle">PM2.5</div>
+    <p>
+      Fine particulate matter with a diameter of 2.5 μm or less, important for
+      exposure analysis because it can remain suspended in the air for longer periods.
+    </p>
+  </div>
+
+  <div class="branch-card">
+    <div class="branch-circle">PM10</div>
+    <p>
+      Coarse particulate matter with a diameter of 10 μm or less, commonly related
+      to dust, traffic, construction and industrial activities.
+    </p>
+  </div>
+</div>
 
     <section class="fh5co-section">
       <div class="container">
         <div class="section-heading">
           <h2>Methodological Overview</h2>
           <p>
-            Our methodology integrates multi-source geospatial data and geoprocessing techniques using QGIS,
-            GeoServer and OpenLayers. The workflow analyses air quality trends, land cover transitions and
-            population exposure in Serbia.
+            Our workflow combines CAMS air quality data for PM10, PM2.5 and NO₂,
+            ESRI Land Cover data, WorldPop population data and the Serbian national
+            boundary to analyse air pollution, land cover change and population
+            exposure in Serbia.
           </p>
         </div>
 
-        <div class="timeline">
-          <article class="timeline-card">
-            <span>01</span>
-            <h3>Data Acquisition</h3>
-            <p>
-              CAMS European Air Quality Reanalysis data were collected for NO₂, PM2.5 and PM10. ESRI 10m Annual
-              Land Cover maps were used for 2021 and 2023, while WorldPop 2023 population counts supported the
-              exposure analysis. Serbian administrative boundaries were used for clipping and zonal statistics.
+        <article class="timeline-card">
+          <span>01</span>
+          <h3>Data Collection</h3>
+<p>
+              We collected multi-source geospatial datasets, including CAMS air quality
+              rasters for PM10, PM2.5 and NO₂, ESRI 10 m Annual Land Cover data for 2021
+              and 2023, WorldPop population data and the Serbia national boundary.
             </p>
+          <div class="data-image-grid">
+           <figure>
+      <a class="map-lightbox-trigger" href="../images/Landcover2023.png">
+        <img src="../images/Landcover2023.png" alt="ESRI Land Cover dataset">
+      </a>
+      <figcaption>Land Cover</figcaption>
+    </figure>
+
+    <figure>
+      <a class="map-lightbox-trigger" href="../images/Serbia_boundary.jpg">
+        <img src="../images/Serbia_boundary.jpg" alt="Serbia national boundary">
+      </a>
+      <figcaption>Serbia Boundary</figcaption>
+    </figure>
+
+    <figure>
+      <a class="map-lightbox-trigger" href="../images/population.png">
+        <img src="../images/population.png" alt="WorldPop population dataset">
+      </a>
+      <figcaption>Population</figcaption>
+              </figure>
+            </div>
           </article>
 
           <article class="timeline-card">
             <span>02</span>
             <h3>Preprocessing</h3>
             <p>
-              All spatial layers were reprojected to EPSG:4326 and clipped to Serbia. CAMS rasters, land cover maps
-              and population layers were harmonized to support consistent raster calculations and spatial overlays.
+              All datasets were prepared before analysis by standardizing their coordinate
+              reference system, clipping them to the Serbian national boundary and aligning
+              their spatial extent. Special attention was given to NoData handling: pixels
+              outside Serbia, invalid raster cells and missing values were excluded from
+              later raster calculations and statistical analysis. This preprocessing ensured
+              that CAMS pollution rasters, ESRI Land Cover layers, WorldPop population data
+              and vector boundaries could be correctly overlaid, compared and combined in
+              the following workflow steps.
             </p>
+            <div class="process-tags">
+              <span>Raw CAMS / ESRI / WorldPop data</span>
+              <span>Coordinate Reference System Standardization</span>
+              <span>Clipping to Serbian Boundary</span>
+              <span>NoData and Extent Alignment</span>
+              <span>Ready for Overlay and Raster Calculation</span>
+            </div>
           </article>
 
           <article class="timeline-card">
             <span>03</span>
-            <h3>Air Quality Mapping</h3>
+            <h3>Annual and Monthly Pollution Mapping</h3>
             <p>
-              Annual Mean Aggregation Change maps were produced between 2021 and 2023 for NO₂, PM2.5 and PM10.
-              Positive values indicate increasing concentration, while negative values indicate decreasing concentration.
+              Monthly CAMS pollutant layers were processed to generate annual and monthly
+              raster products for PM10, PM2.5 and NO₂. These prepared layers provided the
+              basis for concentration mapping and subsequent change detection analysis.
             </p>
+            <div class="data-image-grid pm10-image-grid">
+              <figure>
+                <a class="map-lightbox-trigger" href="../images/Serbia_pm10_annual_mean_2021.jpg">
+                  <img src="../images/Serbia_pm10_annual_mean_2021.jpg" alt="Serbia PM10 annual mean in 2021">
+                </a>
+                <figcaption>PM10 Annual Mean 2021</figcaption>
+              </figure>
+
+              <figure>
+                <a class="map-lightbox-trigger" href="../images/serbia_pm10_annual_mean_2023.jpg">
+                  <img src="../images/serbia_pm10_annual_mean_2023.jpg" alt="Serbia PM10 annual mean in 2023">
+                </a>
+                <figcaption>PM10 Annual Mean 2023</figcaption>
+              </figure>
+            </div>
+            <div class="data-image-grid monthly-pollution-grid">
+              <figure>
+                <a class="map-lightbox-trigger" href="../images/CAMS_no2_2023_12.jpg">
+                  <img src="../images/CAMS_no2_2023_12.jpg" alt="CAMS NO2 concentration in December 2023">
+                </a>
+                <figcaption>NO₂ December 2023</figcaption>
+              </figure>
+
+              <figure>
+                <a class="map-lightbox-trigger" href="../images/CAMS_pm2.5_2023_12.jpg">
+                  <img src="../images/CAMS_pm2.5_2023_12.jpg" alt="CAMS PM2.5 concentration in December 2023">
+                </a>
+                <figcaption>PM2.5 December 2023</figcaption>
+              </figure>
+
+              <figure>
+                <a class="map-lightbox-trigger" href="../images/CAMS_pm10_2023_12.jpg">
+                  <img src="../images/CAMS_pm10_2023_12.jpg" alt="CAMS PM10 concentration in December 2023">
+                </a>
+                <figcaption>PM10 December 2023</figcaption>
+              </figure>
+            </div>
+            <div class="pm10-map-feature">
+              <h4>PM10 Concentration Pattern</h4>
+              <figure>
+                <a class="map-lightbox-trigger" href="../images/pm10%20concentration%20map.jpg">
+                  <img src="../images/pm10%20concentration%20map.jpg" alt="PM10 concentration map">
+                </a>
+                <figcaption>PM10 Concentration Map</figcaption>
+              </figure>
+              <div class="pm10-map-text">
+                <p>
+                  The 2023 PM10 concentration map shows the spatial distribution of
+                  particulate matter across Serbia. Higher concentration levels are mainly
+                  concentrated in specific parts of the country, while lower values appear
+                  in less affected areas. This map provides a baseline for identifying PM10
+                  pollution hotspots and supports the subsequent 2021–2023 change detection
+                  analysis.
+                </p>
+              </div>
+            </div>
           </article>
 
           <article class="timeline-card">
             <span>04</span>
-            <h3>Land Cover Change</h3>
+            <h3>Pollution Change Detection</h3>
             <p>
-              A land cover transition raster was generated using the expression <strong>("LC_2021" × 100) + "LC_2023"</strong>.
-              This allowed stable areas, gains and losses of selected land cover classes to be identified.
+              The 2021 and 2023 annual mean pollutant layers were compared to detect
+              spatial changes in air pollution levels. The Annual Mean Air Concentration
+              Change (AMAC) was calculated by subtracting the 2021 annual mean concentration
+              from the 2023 annual mean concentration. The resulting raster was then
+              reclassified using pollutant-specific thresholds for NO₂, PM2.5 and PM10.
             </p>
+            <div class="process-tags change-flow">
+              <span>
+                Annual mean layers<br>
+                2021 pollutant layer<br>
+                2023 pollutant layer
+              </span>
+              <span class="amac-step">
+                <span class="amac-heading">
+                  <strong class="amac-title">AMAC calculation</strong>
+                </span>
+                <em class="amac-formula">
+                  AMAC = C<sub>2023</sub> − C<sub>2021</sub>
+                </em>
+                <small>
+                  C = annual mean concentration
+                </small>
+              </span>
+              <span>Reclassification</span>
+              <span>Pollution change detection layer</span>
+            </div>
+            <p class="workflow-note">
+              Based on this workflow, the AMAC rasters were reclassified into
+              pollutant-specific change categories. The maps below show the resulting
+              reclassification outputs for NO₂, PM2.5 and PM10.
+            </p>
+            <div class="data-image-grid reclassification-grid">
+              <figure>
+                <img src="../images/no2.png" alt="NO2 reclassification map">
+                <figcaption>NO₂ Reclassification</figcaption>
+              </figure>
+
+              <figure>
+                <img src="../images/pm2.5.png" alt="PM2.5 reclassification map">
+                <figcaption>PM2.5 Reclassification</figcaption>
+              </figure>
+
+              <figure>
+                <img src="../images/pm10.png" alt="PM10 reclassification map">
+                <figcaption>PM10 Reclassification</figcaption>
+              </figure>
+            </div>
           </article>
 
           <article class="timeline-card">
             <span>05</span>
-            <h3>Zonal Statistics</h3>
+            <h3>Land Cover Change </h3>
             <p>
-              Mean, minimum and maximum pollutant concentrations were calculated for administrative zones. These
-              statistics support comparison between regions and help identify pollution hotspots.
+              Land cover change was detected by combining the 2021 and 2023 land cover
+              layers into a transition code raster. The transition codes were then
+              reclassified into stable, gain and loss categories. To calculate land cover
+              change area accurately, the transition raster was reprojected to the
+              equal-area projection EPSG:3035 before pixel-based area calculation. This
+              ensured that each pixel represented a consistent ground area and reduced area
+              distortion compared with geographic coordinates.
             </p>
+            <div class="landcover-flow">
+              <div class="landcover-inputs">
+                <figure>
+                  <a class="map-lightbox-trigger" href="../images/landcover2021.png">
+                    <img src="../images/landcover2021.png" alt="Land Cover 2021">
+                  </a>
+                  <figcaption>Land Cover 2021</figcaption>
+                </figure>
+                <figure>
+                  <a class="map-lightbox-trigger" href="../images/Landcover2023.png">
+                    <img src="../images/Landcover2023.png" alt="Land Cover 2023">
+                  </a>
+                  <figcaption>Land Cover 2023</figcaption>
+                </figure>
+              </div>
+              <div class="flow-arrow">↓</div>
+              <div class="landcover-flow-node">Input layers for change detection</div>
+              <div class="flow-arrow">↓</div>
+              <div class="landcover-flow-node formula-node">
+                <strong>Raster Calculator</strong>
+                <span>(LC<sub>2021</sub> × 100) + LC<sub>2023</sub></span>
+              </div>
+              <div class="flow-arrow">↓</div>
+              <div class="landcover-flow-node">Transition Code Raster</div>
+              <div class="flow-arrow">↓</div>
+              <div class="landcover-flow-node">
+                Reproject to EPSG:3035<br>
+                Equal-area pixel calculation
+              </div>
+              <div class="flow-arrow">↓</div>
+              <div class="landcover-flow-node">Stable / Gain / Loss classification</div>
+            </div>
+            <p class="workflow-note">
+              The transition code records both the original 2021 land cover class and the
+              resulting 2023 class in a single raster value. The first part of the code
+              represents the 2021 class, while the last two digits represent the 2023 class.
+              This makes it possible to distinguish unchanged areas from land cover gains
+              and losses during reclassification.
+            </p>
+            <table class="transition-code-table">
+              <thead>
+                <tr>
+                  <th>Example Code</th>
+                  <th>Meaning</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>101</td>
+                  <td>Class 1 remained Class 1</td>
+                </tr>
+                <tr>
+                  <td>102</td>
+                  <td>Class 1 changed to Class 2</td>
+                </tr>
+                <tr>
+                  <td>502</td>
+                  <td>Class 5 changed to Class 2</td>
+                </tr>
+                <tr>
+                  <td>1102</td>
+                  <td>Class 11 changed to Class 2</td>
+                </tr>
+              </tbody>
+            </table>
           </article>
 
           <article class="timeline-card">
             <span>06</span>
-            <h3>Population Exposure</h3>
+            <h3>Zonal Statistics and Bivariate Classification</h3>
             <p>
-              WorldPop 2023 population data were classified into five classes. Population classes were combined with
-              pollution severity classes to create bivariate exposure maps.
+              Population exposure was assessed at GAUL Level 2 administrative zones.
+              Zonal statistics were used to extract the median population class and the
+              maximum pollutant concentration class for each zone. These values were then
+              combined as pol_class_max × 10 + pop_class_median to produce the bivariate
+              exposure layer.
             </p>
+            <div class="zonal-flow">
+              <div class="zonal-input-row">
+                <div class="zonal-node input-node">
+                  <strong>GAUL Level 2</strong>
+                  <span>Administrative Zones</span>
+                </div>
+                <div class="zonal-plus">+</div>
+                <div class="zonal-node input-node image-node">
+                  <strong>Population Quantile Raster</strong>
+                  <a class="map-lightbox-trigger" href="../images/population%20quantiles.jpg">
+                    <img src="../images/population%20quantiles.jpg" alt="Population quantile raster">
+                  </a>
+                  <span>5 population classes</span>
+                </div>
+                <div class="zonal-plus">+</div>
+                <div class="zonal-node input-node">
+                  <strong>Pollutant Concentration 2023</strong>
+                  <span>NO₂ / PM2.5 / PM10</span>
+                </div>
+              </div>
+
+              <div class="zonal-connector-row three-way">
+                <span></span>
+                <span>↓</span>
+                <span></span>
+              </div>
+
+              <div class="zonal-stage">
+                <div class="zonal-side-connector">GAUL zones →</div>
+                <div class="zonal-node stat-node">
+                  <strong>Zonal Statistics 1</strong>
+                  <span>Population by zone</span>
+                  <small>Statistic: median<br>Output: pop_class_median</small>
+                </div>
+              </div>
+
+              <div class="zonal-connector-row">
+                <span>↓</span>
+              </div>
+
+              <div class="zonal-stage">
+                <div class="zonal-node stat-node">
+                  <strong>Zonal Statistics 2</strong>
+                  <span>Pollution by zone</span>
+                  <small>Statistic: maximum<br>Output: pol_class_max</small>
+                </div>
+                <div class="zonal-side-connector">← pollutant layer</div>
+              </div>
+
+              <div class="zonal-connector-row">
+                <span>↓</span>
+              </div>
+
+              <div class="zonal-node formula-node zonal-formula-node">
+                <strong>Field Calculator</strong>
+                <span>bivariate = pol_class_max × 10 + pop_class_median</span>
+              </div>
+
+              <div class="zonal-connector-row">
+                <span>↓</span>
+              </div>
+
+              <div class="zonal-node output-node">
+                <strong>Bivariate Exposure Layer</strong>
+                <span>codes: 11–55</span>
+              </div>
+
+              <div class="zonal-connector-row">
+                <span>↓</span>
+              </div>
+
+              <div class="zonal-node output-node">
+                <strong>Dissolve by pol_class_max</strong>
+                <span>max 5 features</span>
+              </div>
+
+              <div class="zonal-connector-row">
+                <span>↓</span>
+              </div>
+
+              <div class="zonal-combine-row">
+                <div class="zonal-node">
+                  <strong>Unquantized WorldPop Count Raster</strong>
+                </div>
+                <div class="zonal-plus">+</div>
+                <div class="zonal-node stat-node">
+                  <strong>Zonal Statistics 3</strong>
+                  <span>Population sum by pollution class</span>
+                </div>
+              </div>
+
+              <div class="zonal-connector-row">
+                <span>↓</span>
+              </div>
+
+              <div class="zonal-node output-node pie-node">
+                <strong>Pie Chart</strong>
+                <span>population exposed to pollutant classes</span>
+              </div>
+            </div>
           </article>
 
           <article class="timeline-card">
             <span>07</span>
             <h3>GeoServer and WebGIS</h3>
             <p>
-              Final raster and vector outputs were uploaded to GeoServer as WMS/WFS layers and visualized in an
-              OpenLayers WebGIS with base maps, controls, legends and layer switching.
+              Final raster and vector outputs were published in GeoServer as WMS/WFS
+              layers and styled using SLD-based symbology to ensure consistent visual
+              representation across all pollutant and exposure layers.
             </p>
+            <p>
+              The WebGIS was built using OpenLayers and includes three switchable base maps
+              (OpenStreetMap, ESRI Topographic, ESRI World Imagery), a layer switcher for
+              toggling thematic overlays, and standard map controls including Scale Line,
+              Full Screen, Mouse Position and Overview Map.
+            </p>
+            <p>
+              A dynamic legend panel was implemented to automatically update based on the
+              active layer, and a GetFeatureInfo popup allows users to query attribute
+              values by clicking directly on the map. All layers are served via WMS from
+              the Politecnico di Milano GeoServer instance.
+            </p>
+            <div class="webgis-flow">
+              <div class="webgis-flow-node">
+                <strong>Final GIS Outputs</strong>
+                <span>raster + vector</span>
+                <span>AMAC / bivariate</span>
+                <span>chart layers</span>
+              </div>
+              <div class="webgis-flow-node">
+                <strong>GeoServer Upload</strong>
+                <span>publish layers</span>
+                <span>apply SLD styles</span>
+              </div>
+              <div class="webgis-flow-node">
+                <strong>Web Services</strong>
+                <span>WMS / WFS</span>
+              </div>
+              <div class="webgis-flow-node">
+                <strong>OpenLayers WebGIS</strong>
+                <span>layer switcher</span>
+                <span>legends + controls</span>
+                <span>base maps</span>
+              </div>
+            </div>
+            <div class="webgis-link-wrap">
+              <a class="project-btn primary" href="webgis.html">Open WebGIS</a>
+            </div>
           </article>
         </div>
       </div>
@@ -136,12 +530,38 @@
   </div>
 </footer>
 
+  <div class="map-lightbox" aria-hidden="true">
+    <button class="map-lightbox-close" type="button" aria-label="Close enlarged map">×</button>
+    <img src="" alt="">
+  </div>
+
   <script src="../assets/js/jquery.min.js"></script>
   <script src="../assets/js/jquery.easing.1.3.js"></script>
   <script src="../assets/js/bootstrap.min.js"></script>
   <script src="../assets/js/jquery.waypoints.min.js"></script>
   <script src="../assets/js/jquery.stellar.min.js"></script>
   <script src="../assets/js/main.js"></script>
+  <script>
+    document.querySelectorAll('.map-lightbox-trigger').forEach(function (trigger) {
+      trigger.addEventListener('click', function (event) {
+        event.preventDefault();
+        var lightbox = document.querySelector('.map-lightbox');
+        var lightboxImage = lightbox.querySelector('img');
+        var image = trigger.querySelector('img');
+        lightboxImage.src = trigger.getAttribute('href');
+        lightboxImage.alt = image ? image.alt : 'Enlarged map';
+        lightbox.classList.add('is-open');
+        lightbox.setAttribute('aria-hidden', 'false');
+      });
+    });
+
+    document.querySelector('.map-lightbox').addEventListener('click', function (event) {
+      if (event.target.matches('.map-lightbox, .map-lightbox-close')) {
+        this.classList.remove('is-open');
+        this.setAttribute('aria-hidden', 'true');
+      }
+    });
+  </script>
 
 </body>
 </html>
