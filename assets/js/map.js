@@ -94,30 +94,30 @@ const baseMaps = new Group({
 const amacGroup = new Group({
   title: 'AMAC Difference Maps 2021–2023 ★',
   layers: [
-    wms('NO₂ AMAC Difference',  L.no2Amac, true),
+    wms('PM₁₀ AMAC Difference',   L.pm10Amac,  true),
     wms('PM₂.₅ AMAC Difference', L.pm25Amac, false),
-    wms('PM₁₀ AMAC Difference',   L.pm10Amac,  false),
+    wms('NO₂ AMAC Difference',  L.no2Amac, false),
   ],
 });
 
 const avgGroup = new Group({
   title: 'Annual Average Air Pollution',
   layers: [
-    wms('NO₂ Average 2021', L.no2Avg2021),
-    wms('NO₂ Average 2023', L.no2Avg2023),
-    wms('PM₂.₅ Average 2021',  L.pm25Avg2021),
-    wms('PM₂.₅ Average 2023',  L.pm25Avg2023),
     wms('PM₁₀ Average 2021',   L.pm10Avg2021),
     wms('PM₁₀ Average 2023',   L.pm10Avg2023),
+    wms('PM₂.₅ Average 2021',  L.pm25Avg2021),
+    wms('PM₂.₅ Average 2023',  L.pm25Avg2023),
+    wms('NO₂ Average 2021', L.no2Avg2021),
+    wms('NO₂ Average 2023', L.no2Avg2023),
   ],
 });
 
 const concGroup = new Group({
   title: 'Concentration Maps 2023',
   layers: [
-    wms('NO₂ Concentration 2023', L.no2Conc2023),
-    wms('PM₂.₅ Concentration 2023',  L.pm25Conc2023),
     wms('PM₁₀ Concentration 2023',   L.pm10Conc2023),
+    wms('PM₂.₅ Concentration 2023',  L.pm25Conc2023),
+    wms('NO₂ Concentration 2023', L.no2Conc2023),
   ],
 });
 
@@ -141,9 +141,9 @@ const popDistGroup = new Group({
 const exposureGroup = new Group({
   title: 'Air Pollution Exposure ★',
   layers: [
-    wms('NO₂ Bivariate Exposure',  L.no2Biv),
-    wms('PM₂.₅ Bivariate Exposure', L.pm25Biv),
     wms('PM₁₀ Bivariate Exposure',   L.pm10Biv),
+    wms('PM₂.₅ Bivariate Exposure', L.pm25Biv),
+    wms('NO₂ Bivariate Exposure',  L.no2Biv),
   ],
 });
 
@@ -179,85 +179,9 @@ function makeExclusiveAcrossGroups() {
   });
 }
 
-makeExclusiveAcrossGroups();
-
 const allOverlayGroups = [
   boundaryGroup, avgGroup, concGroup, amacGroup, lcGroup, popDistGroup, exposureGroup,
 ];
-
-function findLayerByName(group, layerName) {
-  return group.getLayers().getArray().find(layer => (
-    layer.getSource().getParams().LAYERS === layerName
-  ));
-}
-
-function showExclusiveLayer(layerToShow) {
-  exclusiveGroups.forEach(group => {
-    group.getLayers().getArray().forEach(layer => {
-      layer.setVisible(false);
-    });
-  });
-
-  if (layerToShow) {
-    layerToShow.setVisible(true);
-  }
-}
-
-function getPollutantParam() {
-  const params = new URLSearchParams(window.location.search);
-  const pollutant = (params.get('pollutant') || 'no2').toLowerCase();
-  return ['no2', 'pm25', 'pm10'].includes(pollutant) ? pollutant : 'no2';
-}
-
-function applyInitialLayerFromUrl() {
-  const params = new URLSearchParams(window.location.search);
-  const layerType = (params.get('layer') || 'amac').toLowerCase();
-  const pollutant = getPollutantParam();
-
-  const layerNamesByType = {
-    amac: {
-      no2: L.no2Amac,
-      pm25: L.pm25Amac,
-      pm10: L.pm10Amac,
-    },
-    concentration: {
-      no2: L.no2Conc2023,
-      pm25: L.pm25Conc2023,
-      pm10: L.pm10Conc2023,
-    },
-    exposure: {
-      no2: L.no2Biv,
-      pm25: L.pm25Biv,
-      pm10: L.pm10Biv,
-    },
-  };
-
-  if (layerType === 'lcc' || layerType === 'landcover') {
-    showExclusiveLayer(findLayerByName(lcGroup, L.lcc));
-    return;
-  }
-
-  if (layerType === 'population') {
-    showExclusiveLayer(findLayerByName(popDistGroup, L.population));
-    return;
-  }
-
-  if (layerType === 'population_quantile') {
-    showExclusiveLayer(findLayerByName(popDistGroup, L.popQuantiles));
-    return;
-  }
-
-  const layerName = layerNamesByType[layerType]?.[pollutant] || L.no2Amac;
-  const groupByType = {
-    amac: amacGroup,
-    concentration: concGroup,
-    exposure: exposureGroup,
-  };
-
-  showExclusiveLayer(findLayerByName(groupByType[layerType] || amacGroup, layerName));
-}
-
-applyInitialLayerFromUrl();
 
 // ─── Map ──────────────────────────────────────────────────────────────────────
 const serbiaCenter = fromLonLat([20.9, 44.1]);
@@ -290,6 +214,61 @@ const map = new Map({
     projection: 'EPSG:3857',
   }),
 });
+
+// ─── Pre-process URL params before applying mutually exclusive listeners ─────
+function applyUrlParamsBeforeListeners() {
+  const params = new URLSearchParams(window.location.search);
+  const layerParam = params.get('layer');
+  const pollutantParam = params.get('pollutant');
+
+  if (!layerParam) return; 
+
+  let targetLayerTitle = null;
+
+  if (layerParam === 'amac' && pollutantParam) {
+    const pollutantMap = { 
+      'no2': 'NO₂ AMAC Difference', 
+      'pm25': 'PM₂.₅ AMAC Difference', 
+      'pm10': 'PM₁₀ AMAC Difference' 
+    };
+    targetLayerTitle = pollutantMap[pollutantParam];
+  } else if (layerParam === 'concentration' && pollutantParam) {
+    const pollutantMap = { 
+      'no2': 'NO₂ Concentration 2023', 
+      'pm25': 'PM₂.₅ Concentration 2023', 
+      'pm10': 'PM₁₀ Concentration 2023' 
+    };
+    targetLayerTitle = pollutantMap[pollutantParam];
+  } else if (layerParam === 'lcc') {
+    targetLayerTitle = 'Land Cover Change 2021–2023 ★';
+  } else if (layerParam === 'exposure' && pollutantParam) {
+    const pollutantMap = { 
+      'no2': 'NO₂ Bivariate Exposure', 
+      'pm25': 'PM₂.₅ Bivariate Exposure', 
+      'pm10': 'PM₁₀ Bivariate Exposure' 
+    };
+    targetLayerTitle = pollutantMap[pollutantParam];
+  }
+
+  if (!targetLayerTitle) return;
+
+  allOverlayGroups.forEach(group => {
+    group.getLayers().getArray().forEach(layer => {
+      if (layer.get('title') === targetLayerTitle) {
+        layer.setVisible(true);
+      } else {
+        layer.setVisible(false);
+      }
+    });
+  });
+  
+  boundaryGroup.getLayers().getArray().forEach(layer => layer.setVisible(true));
+}
+
+applyUrlParamsBeforeListeners();
+
+// ─── Initialize cross-group mutual exclusion ────────────────────────────────
+makeExclusiveAcrossGroups();
 
 // ─── Controls ────────────────────────────────────────────────────────────────
 map.addControl(new ScaleLine({ units: 'metric' }));
@@ -333,7 +312,7 @@ map.on('singleclick', async (evt) => {
   let activeSource = null;
   [amacGroup, avgGroup, concGroup, lcGroup, popDistGroup, exposureGroup, boundaryGroup].forEach(group => {
     group.getLayers().getArray().forEach(layer => {
-      if (layer.getVisible() && !activeSource) {
+      if (layer.get('visible') && !activeSource) {
         activeSource = layer.getSource();
       }
     });
@@ -386,7 +365,7 @@ function refreshLegend() {
   const visibleLayers = [];
   allOverlayGroups.forEach(group => {
     group.getLayers().getArray().forEach(layer => {
-      if (layer.getVisible()) visibleLayers.push(layer);
+      if (layer.get('visible')) visibleLayers.push(layer);
     });
   });
 
@@ -418,4 +397,5 @@ allOverlayGroups.forEach(group => {
   });
 });
 
+// ─── Initial execution ────────────────────────────────────────────────────────
 refreshLegend();
