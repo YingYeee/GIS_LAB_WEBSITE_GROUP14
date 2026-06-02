@@ -709,9 +709,74 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 22px;
 }
 
+.workflow-mini-overview {
+  padding: 22px 0 8px;
+  background: #ffffff;
+}
+
+.mini-workflow-track {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.mini-workflow-track span {
+  position: relative;
+  padding: 7px 12px;
+  background: #f8fbfa;
+  border: 1px solid #d8e7e2;
+  border-radius: 999px;
+  color: #2f4f44;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.mini-workflow-track span:not(:last-child) {
+  margin-right: 14px;
+}
+
+.mini-workflow-track span:not(:last-child)::after {
+  content: "\2192";
+  position: absolute;
+  right: -19px;
+  top: 50%;
+  color: #8eb2a8;
+  font-size: 13px;
+  transform: translateY(-50%);
+}
+
 .map-lightbox-trigger {
+  position: relative;
   display: block;
   cursor: zoom-in;
+}
+
+.map-lightbox-trigger::after {
+  content: "Click to enlarge";
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 5px 9px;
+  background: rgba(15, 61, 76, 0.88);
+  color: #ffffff;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+.map-lightbox-trigger:hover::after,
+.map-lightbox-trigger:focus::after {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .map-lightbox-trigger img {
@@ -960,6 +1025,18 @@ h1, h2, h3, h4, h5, h6 {
 .webgis-link-wrap {
   margin-top: 22px;
   text-align: center;
+}
+
+.webgis-secondary-btn {
+  background: #ffffff;
+  border: 1px solid #2a9d8f;
+  color: #2a9d8f !important;
+}
+
+.webgis-secondary-btn:hover,
+.webgis-secondary-btn:focus {
+  background: #eef8f6;
+  color: #1f6371 !important;
 }
 
 .change-flow > span {
@@ -1320,6 +1397,14 @@ h1, h2, h3, h4, h5, h6 {
 
   .data-image-grid {
     grid-template-columns: 1fr;
+  }
+
+  .mini-workflow-track span:not(:last-child) {
+    margin-right: 0;
+  }
+
+  .mini-workflow-track span:not(:last-child)::after {
+    display: none;
   }
 
   .pm10-map-feature {

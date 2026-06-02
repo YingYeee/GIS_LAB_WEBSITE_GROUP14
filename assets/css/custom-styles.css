@@ -477,3 +477,60 @@ p {
   left: 12px;
   z-index: 1000;
 }
+
+.jump-link-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 18px 0 30px;
+  text-align: center;
+  text-align-last: center;
+}
+
+.btn-jump {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 100%;
+  padding: 11px 18px 11px 14px;
+  background: linear-gradient(135deg, #eef8f6 0%, #ffffff 100%);
+  border: 1px solid rgba(42, 157, 143, 0.34);
+  color: #1f6371 !important;
+  text-decoration: none;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95em;
+  line-height: 1.35;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+  box-shadow: 0 8px 20px rgba(42, 157, 143, 0.12);
+}
+
+.btn-jump::before {
+  content: "\2192";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #287d8e;
+  color: #ffffff;
+  font-size: 14px;
+  flex: 0 0 auto;
+}
+
+.btn-jump:hover,
+.btn-jump:focus {
+  border-color: rgba(42, 157, 143, 0.72);
+  color: #174f5a !important;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(42, 157, 143, 0.2);
+  text-decoration: none;
+}
+
+#air-quality,
+#land-cover,
+#zonal-stats,
+#bivariate-exposure,
+#pie-charts {
+  scroll-margin-top: 90px;
+}
