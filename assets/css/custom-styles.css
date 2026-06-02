@@ -210,13 +210,18 @@ body {
 
 .output-card {
   border-left: 4px solid var(--project-teal);
+  padding: 20px 22px;
 }
 
 .output-card strong {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   color: var(--project-blue);
   font-size: 17px;
+}
+
+.output-card p {
+  margin-bottom: 0;
 }
 /* Team */
 .team-section {
@@ -225,29 +230,51 @@ body {
 
 .team-card {
   text-align: center;
-  padding: 32px 28px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
 }
 
 .team-photo {
-  width: 128px;
-  height: 128px;
+  width: 118px;
+  height: 118px;
   object-fit: cover;
   border-radius: 50%;
-  margin: 0 auto 18px auto;
+  margin: 0 auto 14px auto;
   display: block;
   box-shadow: 0 8px 22px rgba(0,0,0,0.15);
+}
+
+.team-card h3 {
+  margin: 10px 0 0 0;
 }
 
 .team-background {
   color: #6f7d86;
   font-size: 1.2rem;
   line-height: 1.8;
-  margin: 16px 0 26px 0;
+  height: 82px;
+  margin: 10px 0 8px 0;
+}
+
+.team-email {
+  font-size: 1.45rem !important;
+  line-height: 1.55 !important;
+  margin: 0 0 12px 0;
+}
+
+.team-email a {
+  color: #6f7d86;
+}
+
+.team-email a:hover {
+  color: var(--project-teal);
 }
 
 .team-role {
   color: var(--project-teal) !important;
   font-weight: 600;
+  margin-top: 0;
   margin-bottom: 0;
   line-height: 1.6;
 }
