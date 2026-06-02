@@ -178,8 +178,6 @@ function makeExclusiveAcrossGroups() {
   });
 }
 
-makeExclusiveAcrossGroups();
-
 const allOverlayGroups = [
   boundaryGroup, avgGroup, concGroup, amacGroup, lcGroup, popDistGroup, exposureGroup,
 ];
@@ -215,6 +213,61 @@ const map = new Map({
     projection: 'EPSG:3857',
   }),
 });
+
+// ─── Pre-process URL params before applying mutually exclusive listeners ─────
+function applyUrlParamsBeforeListeners() {
+  const params = new URLSearchParams(window.location.search);
+  const layerParam = params.get('layer');
+  const pollutantParam = params.get('pollutant');
+
+  if (!layerParam) return; 
+
+  let targetLayerTitle = null;
+
+  if (layerParam === 'amac' && pollutantParam) {
+    const pollutantMap = { 
+      'no2': 'NO₂ AMAC Difference', 
+      'pm25': 'PM₂.₅ AMAC Difference', 
+      'pm10': 'PM₁₀ AMAC Difference' 
+    };
+    targetLayerTitle = pollutantMap[pollutantParam];
+  } else if (layerParam === 'concentration' && pollutantParam) {
+    const pollutantMap = { 
+      'no2': 'NO₂ Concentration 2023', 
+      'pm25': 'PM₂.₅ Concentration 2023', 
+      'pm10': 'PM₁₀ Concentration 2023' 
+    };
+    targetLayerTitle = pollutantMap[pollutantParam];
+  } else if (layerParam === 'lcc') {
+    targetLayerTitle = 'Land Cover Change 2021–2023 ★';
+  } else if (layerParam === 'exposure' && pollutantParam) {
+    const pollutantMap = { 
+      'no2': 'NO₂ Bivariate Exposure', 
+      'pm25': 'PM₂.₅ Bivariate Exposure', 
+      'pm10': 'PM₁₀ Bivariate Exposure' 
+    };
+    targetLayerTitle = pollutantMap[pollutantParam];
+  }
+
+  if (!targetLayerTitle) return;
+
+  allOverlayGroups.forEach(group => {
+    group.getLayers().getArray().forEach(layer => {
+      if (layer.get('title') === targetLayerTitle) {
+        layer.setVisible(true);
+      } else {
+        layer.setVisible(false);
+      }
+    });
+  });
+  
+  boundaryGroup.getLayers().getArray().forEach(layer => layer.setVisible(true));
+}
+
+applyUrlParamsBeforeListeners();
+
+// ─── Initialize cross-group mutual exclusion ────────────────────────────────
+makeExclusiveAcrossGroups();
 
 // ─── Controls ────────────────────────────────────────────────────────────────
 map.addControl(new ScaleLine({ units: 'metric' }));
@@ -258,7 +311,7 @@ map.on('singleclick', async (evt) => {
   let activeSource = null;
   [amacGroup, avgGroup, concGroup, lcGroup, popDistGroup, exposureGroup, boundaryGroup].forEach(group => {
     group.getLayers().getArray().forEach(layer => {
-      if (layer.getVisible() && !activeSource) {
+      if (layer.get('visible') && !activeSource) {
         activeSource = layer.getSource();
       }
     });
@@ -311,7 +364,7 @@ function refreshLegend() {
   const visibleLayers = [];
   allOverlayGroups.forEach(group => {
     group.getLayers().getArray().forEach(layer => {
-      if (layer.getVisible()) visibleLayers.push(layer);
+      if (layer.get('visible')) visibleLayers.push(layer);
     });
   });
 
@@ -343,4 +396,5 @@ allOverlayGroups.forEach(group => {
   });
 });
 
+// ─── Initial execution ────────────────────────────────────────────────────────
 refreshLegend();
