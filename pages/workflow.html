@@ -124,17 +124,17 @@
     </figure>
 
     <figure>
-      <a class="map-lightbox-trigger" href="../images/Serbia_boundary.jpg">
-        <img src="../images/Serbia_boundary.jpg" alt="Serbia national boundary">
-      </a>
-      <figcaption>Serbia Boundary</figcaption>
-    </figure>
-
-    <figure>
       <a class="map-lightbox-trigger" href="../images/population.png">
         <img src="../images/population.png" alt="WorldPop population dataset">
       </a>
       <figcaption>Population</figcaption>
+    </figure>
+
+    <figure>
+      <a class="map-lightbox-trigger" href="../images/Serbia_boundary.jpg">
+        <img src="../images/Serbia_boundary.jpg" alt="Serbia national boundary">
+      </a>
+      <figcaption>Serbia Boundary</figcaption>
               </figure>
             </div>
           </article>
@@ -232,26 +232,24 @@
             <h3>Pollution Change Detection</h3>
             <p>
               The 2021 and 2023 annual mean pollutant layers were compared to detect
-              spatial changes in air pollution levels. The Annual Mean Air Concentration
-              Change (AMAC) was calculated by subtracting the 2021 annual mean concentration
-              from the 2023 annual mean concentration. The resulting raster was then
+              spatial changes in air pollution levels. The Annual Mean Aggregation Change (AMAC) was calculated by subtracting the 2021 annual average pollutant
+              value from the 2023 annual average pollutant value. The resulting raster was then
               reclassified using pollutant-specific thresholds for NO₂, PM2.5 and PM10.
             </p>
             <div class="process-tags change-flow">
               <span>
                 Annual mean layers<br>
-                2021 pollutant layer<br>
-                2023 pollutant layer
+                2021, 2023
               </span>
               <span class="amac-step">
                 <span class="amac-heading">
                   <strong class="amac-title">AMAC calculation</strong>
                 </span>
                 <em class="amac-formula">
-                  AMAC = C<sub>2023</sub> − C<sub>2021</sub>
+                  AMAC = M<sub>2023</sub> − M<sub>2021</sub>
                 </em>
                 <small>
-                  C = annual mean concentration
+                  M = annual average pollutant value
                 </small>
               </span>
               <span>Reclassification</span>

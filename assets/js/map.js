@@ -61,6 +61,7 @@ function wms(title, layerName, visible = false, opacity = 1.0) {
 // ─── Base Maps ───────────────────────────────────────────────────────────────
 const baseMaps = new Group({
   title: 'Base Maps',
+  fold: 'open',
   layers: [
     new TileLayer({
       title: 'OpenStreetMap',
@@ -92,6 +93,7 @@ const baseMaps = new Group({
 // ─── Overlay Groups ──────────────────────────────────────────────────────────
 const amacGroup = new Group({
   title: 'AMAC Difference Maps 2021–2023 ★',
+  fold: 'open',
   layers: [
     wms('PM₁₀ AMAC Difference',   L.pm10Amac,  true),
     wms('PM₂.₅ AMAC Difference', L.pm25Amac, false),
@@ -101,6 +103,7 @@ const amacGroup = new Group({
 
 const avgGroup = new Group({
   title: 'Annual Average Air Pollution',
+  fold: 'open',
   layers: [
     wms('PM₁₀ Average 2021',   L.pm10Avg2021),
     wms('PM₁₀ Average 2023',   L.pm10Avg2023),
@@ -113,6 +116,7 @@ const avgGroup = new Group({
 
 const concGroup = new Group({
   title: 'Concentration Maps 2023',
+  fold: 'open',
   layers: [
     wms('PM₁₀ Concentration 2023',   L.pm10Conc2023),
     wms('PM₂.₅ Concentration 2023',  L.pm25Conc2023),
@@ -122,6 +126,7 @@ const concGroup = new Group({
 
 const lcGroup = new Group({
   title: 'Land Cover',
+  fold: 'open',
   layers: [
     wms('Land Cover 2021',               L.lc2021),
     wms('Land Cover 2023',               L.lc2023),
@@ -131,6 +136,7 @@ const lcGroup = new Group({
 
 const popDistGroup = new Group({
   title: 'Population Distribution',
+  fold: 'open',
   layers: [
     wms('Population Density (Raw)',           L.population),
     wms('Population Density (Quantile Classes)', L.popQuantiles),
@@ -139,6 +145,7 @@ const popDistGroup = new Group({
 
 const exposureGroup = new Group({
   title: 'Air Pollution Exposure ★',
+  fold: 'open',
   layers: [
     wms('PM₁₀ Bivariate Exposure',   L.pm10Biv),
     wms('PM₂.₅ Bivariate Exposure', L.pm25Biv),
@@ -148,6 +155,7 @@ const exposureGroup = new Group({
 
 const boundaryGroup = new Group({
   title: 'Administrative Boundary',
+  fold: 'open',
   layers: [
     wms('Serbia Boundaries', L.boundary, true, 1.0),
   ],
@@ -231,15 +239,17 @@ function applyUrlParamsBeforeListeners() {
       'pm10': 'PM₁₀ AMAC Difference' 
     };
     targetLayerTitle = pollutantMap[pollutantParam];
-  } else if (layerParam === 'concentration' && pollutantParam) {
+  } else if ((layerParam === 'concentration' || layerParam === 'concentration_quantile') && (pollutantParam || layerParam === 'concentration_quantile')) {
     const pollutantMap = { 
       'no2': 'NO₂ Concentration 2023', 
       'pm25': 'PM₂.₅ Concentration 2023', 
       'pm10': 'PM₁₀ Concentration 2023' 
     };
-    targetLayerTitle = pollutantMap[pollutantParam];
+    targetLayerTitle = pollutantMap[pollutantParam || 'no2'];
   } else if (layerParam === 'lcc') {
     targetLayerTitle = 'Land Cover Change 2021–2023 ★';
+  } else if (layerParam === 'population_quantile') {
+    targetLayerTitle = 'Population Density (Quantile Classes)';
   } else if (layerParam === 'exposure' && pollutantParam) {
     const pollutantMap = { 
       'no2': 'NO₂ Bivariate Exposure', 

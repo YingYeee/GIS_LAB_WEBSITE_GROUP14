@@ -81,6 +81,11 @@ p {
   color: rgba(255,255,255,0.94);
 }
 
+.hero-content .hero-subtitle {
+  max-width: 1040px;
+  white-space: nowrap;
+}
+
 /* Merged from supplemental CSS: stronger Workflow hero text visibility */
 .workflow-hero .hero-content h1 {
   color: #ffffff;
@@ -96,6 +101,16 @@ p {
 
 .results-hero {
   background-image: url(../../images/hero_3.jpg);
+}
+
+.results-hero .hero-content a,
+.results-hero .hero-content a strong {
+  color: rgba(255,255,255,0.96);
+}
+
+.results-hero .hero-content a:hover,
+.results-hero .hero-content a:hover strong {
+  color: #ffffff;
 }
 
 .project-btn {
@@ -270,6 +285,11 @@ p {
 
 .team-card h3 {
   margin: 10px 0 0 0;
+}
+
+.team-card p {
+  text-align: center;
+  text-align-last: center;
 }
 
 .team-background {
@@ -537,6 +557,37 @@ p {
   background-color: var(--project-blue) !important;
 }
 
+#map .layer-switcher .panel {
+  border-color: #f1f5f4;
+  background: #ffffff;
+}
+
+#map .layer-switcher.shown.layer-switcher-activation-mode-click > button,
+#map .layer-switcher .group button {
+  background-color: #f7fbfa !important;
+  border: 1px solid #dce9e6;
+  border-radius: 4px;
+}
+
+#map .layer-switcher.shown.layer-switcher-activation-mode-click > button:hover,
+#map .layer-switcher.shown.layer-switcher-activation-mode-click > button:focus,
+#map .layer-switcher .group button:hover,
+#map .layer-switcher .group button:focus {
+  background-color: #edf6f4 !important;
+}
+
+#map .layer-switcher li.group > label {
+  padding-right: 2.2em;
+}
+
+#map .layer-switcher .group button {
+  left: auto;
+  right: 0;
+  width: 1.35em;
+  height: 1.35em;
+  background-position: center center;
+}
+
 .custom-control {
   position: absolute;
   bottom: 32px;
@@ -593,6 +644,10 @@ p {
 
   .hero-content h1 {
     font-size: 38px;
+  }
+
+  .hero-content .hero-subtitle {
+    white-space: normal;
   }
 
   .two-col,
@@ -895,7 +950,7 @@ p {
 
 .bivariate-guide-title {
   margin: 0;
-  font-size: 28px;
+  font-size: 21px;
   font-weight: 700;
   color: var(--project-blue);
 }
