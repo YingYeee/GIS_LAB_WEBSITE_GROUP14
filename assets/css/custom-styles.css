@@ -630,6 +630,10 @@ p {
   line-height: 1.4 !important;
   padding-right: 2.2em !important;
 }
+
+#map .layer-switcher .panel li.group.layer-switcher-fold > label {
+  border-bottom: none !important;
+}
  
 #map .layer-switcher .panel li.group > label:hover {
   background: #f5fafa !important;
@@ -672,7 +676,7 @@ p {
   display: flex !important;
   align-items: center !important;
   gap: 8px !important;
-  padding: 6px 14px 6px 22px !important;
+  padding: 4px 14px 4px 22px !important;
   font-size: 15px !important;
   font-weight: 400 !important;
   color: #3a5560 !important;
