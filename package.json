@@ -1,7 +1,7 @@
 {
-  "name": "gis-webmap",
+  "name": "serbia-air-quality-webgis",
   "version": "1.0.0",
-  "description": "Project for the Web Development part of the GIS lessons 2026.",
+  "description": "Serbia Air Quality WebGIS project for GIS_LAB_WEBSITE_GROUP14.",
   "scripts": {
     "start": "vite --base=./",
     "build-production": "vite build --base=/GIS_LAB_WEBSITE_GROUP14/",
