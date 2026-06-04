@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Results | Serbia Air Quality WebGIS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" crossorigin href="/GIS_LAB_WEBSITE_GROUP14/assets/custom-styles-B_pDqIVA.css">
+</head>
+
+<body class="results-page">
+  <div id="fh5co-wrap">
+    <header id="fh5co-header">
+  <div class="container">
+    <nav class="fh5co-main-nav">
+      <ul>
+        <li><a href="../index.html"><span>Home</span></a></li>
+        <li class=""><a href="workflow.html"><span>Workflow</span></a></li>
+        <li class="fh5co-active"><a href="results.html"><span>Results</span></a></li>
+        <li class=""><a href="webgis.html"><span>WebMap</span></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <section class="fh5co-hero page-hero results-hero">
+      <div class="overlay"></div>
+      <div class="container hero-content">
+        <h1>Results</h1>
+        <p>
+            This section presents the key findings of our spatial analysis in Serbia from 2021 to 2023. By integrating multi-source geospatial data, we explore the complex relationships between environmental dynamics and human health risks. The following maps, charts, and statistical interpretations are organized into three core areas: <a href="#air-quality"><strong>Air Quality Change</strong></a> (spatiotemporal trends of NO2, PM2.5, and PM10), <a href="#land-cover"><strong>Land Cover Change</strong></a> (landscape transitions and stability), and <a href="#bivariate-exposure"><strong>Population Exposure</strong></a> (assessing human vulnerability to pollution hotspots).
+        </p>
+      </div>
+    </section>
+
+    <section class="fh5co-section">
+      <div class="container" id="air-quality">
+        <div class="section-heading">
+          <h2>Air Quality Change</h2>
+          <p>
+            The Annual Mean Aggregation Change maps show whether pollutant concentrations increased or decreased
+            between 2021 and 2023. These maps are key outputs for interpreting air quality trends in Serbia.
+          </p>
+        </div>
+
+        <div class="result-grid">
+          <article class="result-card">
+            <img src="/GIS_LAB_WEBSITE_GROUP14/assets/no2_amac-B0rwftA0.png" alt="NO2 AMAC map">
+            <h3>NO₂ AMAC 2021–2023</h3>
+            <p>
+              NO₂ shows a clear decrease across central Serbia, with the strongest reductions between
+              2 and 5 µg/m³. Slight increases appear mainly in northern and southern peripheral areas.
+            </p>
+          </article>
+          <article class="result-card">
+            <img src="/GIS_LAB_WEBSITE_GROUP14/assets/pm25_amac-CxHZ9aJK.png" alt="PM2.5 AMAC map">
+            <h3>PM2.5 AMAC 2021–2023</h3>
+            <p>
+              PM2.5 generally decreased across Serbia, especially in the central and southwestern areas.
+              Only a small southern area shows a noticeable increase.
+            </p>
+          </article>
+          <article class="result-card">
+            <img src="/GIS_LAB_WEBSITE_GROUP14/assets/pm10_amac-qxi79Xtq.png" alt="PM10 AMAC map">
+            <h3>PM10 AMAC 2021–2023</h3>
+            <p>
+              PM10 is mostly stable or slightly decreasing nationwide. The strongest improvement occurs
+              in the southwest, while almost no areas show worsening pollution.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="fh5co-section light-bg">
+      <div class="container" id="land-cover">
+        <div class="section-heading">
+          <h2>Land Cover Change</h2>
+          <p>
+            Land cover transitions in Serbia from 2021 to 2023, derived from ESRI 10 m Annual Land Cover data.
+          </p>
+        </div>
+
+        <div class="two-col">
+          <div>
+            <img src="/GIS_LAB_WEBSITE_GROUP14/assets/lcc_2021_2023-Cdn1jfMx.png" alt="Land cover change map" class="img-responsive img-card">
+          </div>
+
+          <div>
+            <h3>Land Cover Transition Map</h3>
+            <p>
+              The map distinguishes stable areas from changed pixels and highlights the final land cover class in 2023.
+            </p>
+            <p>
+              View this layer in the WebMap:
+              <a href="webgis.html?layer=lcc" class="result-link">click here</a>.
+            </p>
+          </div>
+        </div>
+
+      <div class="table-section-title">
+        <h2>Land Cover Statistical Tables</h2>
+        <p>
+          The tables summarize stability, top sources of gain and top destinations of loss for the assigned
+          land cover classes. To strengthen the analysis, both pixel-based percentages and area-based
+          percentages are included with quantitative support.
+        </p>
+      </div>
+
+        <!-- Table 1: NO2 - Built Area -->
+        <div class="table-responsive">
+          <h3>Built Area</h3>
+          <table class="result-table">
+            <thead>
+              <tr>
+                <th>Indicator</th>
+                <th>Pixel percentage (%)</th>
+                <th>Area (km²)</th>
+                <th>Area percentage (%)</th>
+                <th>Category</th>
+              </tr>
+            </thead>
+             <tbody>
+                <tr>
+                  <td>Stability (Persistence)</td>
+                  <td>94.3%</td>
+                  <td>3904.2</td>
+                  <td>94.3%</td>
+                  <td>N/A (Baseline)</td>
+                </tr>
+                <tr>
+                  <td>Primary Source of Gain</td>
+                  <td>72.0%</td>
+                  <td>293.5</td>
+                  <td>72.0%</td>
+                  <td>Crops (Code 5)</td>
+                </tr>
+                <tr>
+                  <td>Secondary Source of Gain</td>
+                  <td>17.8%</td>
+                  <td>72.7</td>
+                  <td>17.8%</td>
+                  <td>Rangeland (Code 11)</td>
+                </tr>
+                <tr>
+                  <td>Tertiary Source of Gain</td>
+                  <td>9.0%</td>
+                  <td>36.6</td>
+                  <td>9.0%</td>
+                  <td>Trees (Code 2)</td>
+                </tr>
+                <tr>
+                  <td>Primary Destination of Loss</td>
+                  <td>41.2%</td>
+                  <td>96.5</td>
+                  <td>41.2%</td>
+                  <td>Crops (Code 5)</td>
+                </tr>
+                <tr>
+                  <td>Secondary Destination of Loss</td>
+                  <td>31.5%</td>
+                  <td>73.8</td>
+                  <td>31.5%</td>
+                  <td>Rangeland (Code 11)</td>
+                </tr>
+                <tr>
+                  <td>Tertiary Destination of Loss</td>
+                  <td>25.4%</td>
+                  <td>59.5</td>
+                  <td>25.4%</td>
+                  <td>Trees (Code 2)</td>
+                </tr>
+              </tbody>
+          </table>
+        </div>
+
+
+        <!-- Table 2: PM2.5 - Crops -->
+        <div class="table-responsive">
+          <h3>Crops</h3>
+          <table class="result-table">
+            <thead>
+              <tr>
+                <th>Indicator</th>
+                <th>Pixel percentage (%)</th>
+                <th>Area (km²)</th>
+                <th>Area percentage (%)</th>
+                <th>Category</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Stability (Persistence)</td>
+                <td>92.9%</td>
+                <td>28201.6</td>
+                <td>92.9%</td>
+                <td>N/A (Baseline)</td>
+              </tr>
+              <tr>
+                <td>Primary Source of Gain</td>
+                <td>61.1%</td>
+                <td>328.8</td>
+                <td>61.1%</td>
+                <td>Rangeland (Code 11)</td>
+              </tr>
+              <tr>
+                <td>Secondary Source of Gain</td>
+                <td>18.1%</td>
+                <td>97.3</td>
+                <td>18.1%</td>
+                <td>Trees (Code 2)</td>
+              </tr>
+              <tr>
+                <td>Tertiary Source of Gain</td>
+                <td>17.9%</td>
+                <td>96.5</td>
+                <td>17.9%</td>
+                <td>Built Area (Code 7)</td>
+              </tr>
+              <tr>
+                <td>Primary Destination of Loss</td>
+                <td>46.3%</td>
+                <td>992.7</td>
+                <td>46.3%</td>
+                <td>Rangeland (Code 11)</td>
+              </tr>
+              <tr>
+                <td>Secondary Destination of Loss</td>
+                <td>39.0%</td>
+                <td>837.0</td>
+                <td>39.0%</td>
+                <td>Trees (Code 2)</td>
+              </tr>
+              <tr>
+                <td>Tertiary Destination of Loss</td>
+                <td>13.7%</td>
+                <td>293.5</td>
+                <td>13.7%</td>
+                <td>Built Area (Code 7)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+        <!-- Table 3: PM10 - Trees -->
+        <div class="table-responsive">
+          <h3>Trees</h3>
+          <table class="result-table">
+            <thead>
+              <tr>
+                <th>Indicator</th>
+                <th>Pixel percentage (%)</th>
+                <th>Area (km²)</th>
+                <th>Area percentage (%)</th>
+                <th>Category</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Stability (Persistence)</td>
+                <td>97.7%</td>
+                <td>32348.2</td>
+                <td>97.7%</td>
+                <td>N/A (Baseline)</td>
+              </tr>
+              <tr>
+                <td>Primary Source of Gain</td>
+                <td>54.4%</td>
+                <td>1097.5</td>
+                <td>54.4%</td>
+                <td>Rangeland (Code 11)</td>
+              </tr>
+              <tr>
+                <td>Secondary Source of Gain</td>
+                <td>41.5%</td>
+                <td>837.0</td>
+                <td>41.5%</td>
+                <td>Crops (Code 5)</td>
+              </tr>
+              <tr>
+                <td>Tertiary Source of Gain</td>
+                <td>3.0%</td>
+                <td>59.5</td>
+                <td>3.0%</td>
+                <td>Built Area (Code 7)</td>
+              </tr>
+              <tr>
+                <td>Primary Destination of Loss</td>
+                <td>80.1%</td>
+                <td>603.4</td>
+                <td>80.1%</td>
+                <td>Rangeland (Code 11)</td>
+              </tr>
+              <tr>
+                <td>Secondary Destination of Loss</td>
+                <td>12.9%</td>
+                <td>97.3</td>
+                <td>12.9%</td>
+                <td>Crops (Code 5)</td>
+              </tr>
+              <tr>
+                <td>Tertiary Destination of Loss</td>
+                <td>4.9%</td>
+                <td>36.6</td>
+                <td>4.9%</td>
+                <td>Built Area (Code 7)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="land-cover-analysis">
+          <h4>Data Interpretation: Landscape Transitions in Serbia</h4>
+          <p>
+            Based on the 2021–2023 statistics, Serbia shows high overall land cover stability,
+            with all assigned classes retaining more than 92% of their original extent.
+            However, the transition patterns still reveal important landscape dynamics.
+          </p>
+
+          <ul>
+            <li>
+              <strong>Built Area:</strong> Built-up land remains highly stable, with a 94.3%
+              persistence rate. Most new built-up areas come from Crops, which account for
+              72.0% of built-area gain. This indicates urban expansion mainly affecting
+              agricultural land.
+            </li>
+
+            <li>
+              <strong>Crops:</strong> Cropland has a slightly lower stability rate of 92.9%.
+              Its main transitions are with Rangeland, reflecting shifts between active
+              agriculture, fallow land and grassland areas.
+            </li>
+
+            <li>
+              <strong>Trees:</strong> Tree cover is the most stable class, with 97.7%
+              persistence. Forest loss is mainly converted to Rangeland, while most tree gain
+              also comes from Rangeland. This suggests localized vegetation degradation and
+              recovery dynamics.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="container" id="zonal-stats">
+        <div class="table-section-title">
+          <h2>Zonal Statistics</h2>
+          <p>
+            Zonal statistics compare pollutant concentration change with land cover transition zones.
+            For each pollutant, the mean, minimum and maximum concentration changes were calculated
+            for stable, gain and loss zones of the assigned land cover class. Overall, all three
+            pollutants show a decreasing trend between 2021 and 2023. Since CAMS air quality data
+            has a coarser resolution than the 10 m land cover data, the interpretation mainly
+            focuses on mean values.
+          </p>
+        </div>
+
+        <div class="result-grid">
+          <article class="result-card">
+            <img src="/GIS_LAB_WEBSITE_GROUP14/assets/zonal_statistics_no2-fZQQufqy.png" alt="NO2 zonal statistics chart">
+            <h3>NO₂ Zonal Statistics</h3>
+            <p>
+              NO₂ decreased in all built-area transition zones. Stable built-up areas show the
+              smallest mean reduction (-0.74 µg/m³), while gain and loss zones show stronger
+              decreases.
+            </p>
+          </article>
+
+          <article class="result-card">
+            <img src="/GIS_LAB_WEBSITE_GROUP14/assets/zonal_statistics_pm25-8WqUZ60C.png" alt="PM2.5 zonal statistics chart">
+            <h3>PM2.5 Zonal Statistics</h3>
+            <p>
+              PM2.5 reductions are consistent across cropland zones. The strongest mean decrease
+              occurs where cropland was lost (-1.75 µg/m³), while stable and gained cropland show
+              similar reductions.
+            </p>
+          </article>
+
+          <article class="result-card">
+            <img src="/GIS_LAB_WEBSITE_GROUP14/assets/zonal_statistics_pm10-B-I1AR_p.png" alt="PM10 zonal statistics chart">
+            <h3>PM10 Zonal Statistics</h3>
+            <p>
+              PM10 decreases across all tree-cover transition zones. Stable, gain and loss zones
+              show similar patterns, suggesting a broad regional improvement.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="fh5co-section">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Population Exposure</h2>
+          <p>
+            Human exposure to air pollution depends on both pollutant concentrations and population distribution. By combining these variables, we identify regions where pollution hotspots overlap with densely populated areas, representing the greatest health vulnerability.
+          </p>
+        </div>
+
+        <div class="table-section-title" id="bivariate-exposure">
+          <h2>Pollution Bivariate Analysis</h2>
+          <p>
+            The bivariate maps combine pollutant concentration and population density to identify
+            zones where air quality exposure is highest. The embedded legend and classification
+            tables explain how pollutant and population classes are coded.
+          </p>
+        </div>
+
+        <!-- Compact bivariate map reading guide -->
+        <div class="bivariate-guide-box">
+          <div class="bivariate-toggle-header">
+            <h3 class="bivariate-guide-title">How to Read the Maps</h3>
+            <button class="bivariate-toggle-btn" aria-expanded="false" aria-label="Toggle reading guide">
+              <span class="toggle-icon">▼</span>
+            </button>
+          </div>
+          <div class="bivariate-content">
+            <p>
+              Each GAUL Level 2 administrative region is assigned a two-digit code using zonal statistics.
+              The first digit represents the <em>maximum</em> pollution level within the selected
+              <a href="webgis.html?layer=concentration_quantile">concentration quantile</a>. The second digit represents the
+              <em>median</em> <a href="webgis.html?layer=population_quantile">population quantile</a> for the administrative zone.
+              For example, code 55 indicates extreme pollution combined with a highly populated area.
+            </p>
+
+            <!-- Classification tables -->
+            <div class="bivariate-table-wrap">
+
+            <!-- Pollutant classification table -->
+            <div class="bivariate-table-block">
+              <h4>1st Digit: Pollutant Class</h4>
+              <table class="bivariate-class-table">
+                <thead>
+                  <tr>
+                    <th>Class</th>
+                    <th>Category</th>
+                    <th>NO₂</th>
+                    <th>PM2.5</th>
+                    <th>PM10</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Low</td>
+                    <td>≤ 10</td>
+                    <td>≤ 5</td>
+                    <td>≤ 15</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Moderate-low</td>
+                    <td>10 – 25</td>
+                    <td>5 – 10</td>
+                    <td>15 – 31</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Moderate</td>
+                    <td>25 – 40</td>
+                    <td>10 – 20</td>
+                    <td>31 – 40</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>High</td>
+                    <td>40 – 50</td>
+                    <td>20 – 25</td>
+                    <td>40 – 50</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>Extreme</td>
+                    <td>&gt; 50</td>
+                    <td>&gt; 25</td>
+                    <td>&gt; 50</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Population classification table -->
+            <div class="bivariate-table-block compact">
+              <h4>2nd Digit: Population Class</h4>
+              <table class="bivariate-class-table">
+                <thead>
+                  <tr>
+                    <th>Class</th>
+                    <th>Category</th>
+                    <th>Range<br>(people/pixel)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>No population</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Very low</td>
+                    <td>0.00 – 0.04</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Low</td>
+                    <td>0.04 – 0.27</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Medium</td>
+                    <td>0.27 – 1.24</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>High</td>
+                    <td>1.24 – 141.6</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+
+            <!-- Bivariate color legend -->
+            <div class="bivariate-legend-container">
+              <img src="/GIS_LAB_WEBSITE_GROUP14/assets/bivariate_legend-hH_xRLmb.png" alt="5x5 Bivariate Legend" class="bivariate-legend-image">
+            </div>
+          </div>
+        </div>
+        <div class="result-grid">
+          <article class="result-card">
+            <img src="/GIS_LAB_WEBSITE_GROUP14/assets/no2_bivariate-Dse8ih2q.png" alt="NO2 bivariate map">
+            <h3>NO₂ Bivariate Exposure</h3>
+            <p>
+              NO₂ exposure is generally low to moderate. Higher exposure is mainly limited to
+              central urban areas where population density is higher.
+            </p>
+          </article>
+
+          <article class="result-card">
+            <img src="/GIS_LAB_WEBSITE_GROUP14/assets/pm25_bivariate-Cjf6PNsd.png" alt="PM2.5 bivariate map">
+            <h3>PM2.5 Bivariate Exposure</h3>
+            <p>
+              PM2.5 shows a higher exposure level than NO₂, with several central and northern
+              zones combining moderate-to-high pollution and population density.
+            </p>
+          </article>
+
+          <article class="result-card">
+            <img src="/GIS_LAB_WEBSITE_GROUP14/assets/pm10_bivariate-e87Er_TO.png" alt="PM10 bivariate map">
+            <h3>PM10 Bivariate Exposure</h3>
+            <p>
+              PM10 exposure is generally low across Serbia, with most areas falling into the safest bivariate classes, even in more populated zones.
+            </p>
+          </article>
+        </div>
+
+        <div class="table-section-title" id="pie-charts">
+          <h2>Population Exposure Pie Charts</h2>
+          <p>
+            The pie charts below summarize demographic vulnerability by showing the percentage of
+            the total population exposed to different severity levels of air pollution. Classes 1 to 5
+            represent increasing maximum pollutant concentration, from low exposure to extreme exposure.
+          </p>
+        </div>
+
+        <div class="result-grid">
+          <article class="result-card">
+            <img src="/GIS_LAB_WEBSITE_GROUP14/assets/piechart_no2-DU32DZ1a.png" alt="NO2 population exposure pie chart">
+            <h3>NO₂ Population Exposure</h3>
+            <p>
+              <strong>Low Health Risk:</strong> This chart indicates that the entire population of Serbia
+              is exposed to relatively safe NO₂ levels. Exactly <strong>54.8%</strong> of the population
+              lives in Class 1 (Low) zones, and the remaining <strong>45.2%</strong> resides in Class 2
+              (Moderate-Low) zones. No population is exposed to Class 3 or above.
+            </p>
+          </article>
+
+          <article class="result-card">
+            <img src="/GIS_LAB_WEBSITE_GROUP14/assets/piechart_pm25-DRCkTvgp.png" alt="PM2.5 population exposure pie chart">
+            <h3>PM2.5 Population Exposure</h3>
+            <p>
+              <strong>Moderate to High Risk:</strong> Fine particulate matter presents a significantly
+              higher threat. The vast majority of the population (<strong>76.8%</strong>) resides in
+              Class 3 (Moderate) pollution zones. More critically, nearly a quarter of the residents are
+              exposed to hazardous levels: <strong>22.1%</strong> in Class 4 (High) and
+              <strong>1.1%</strong> in Class 5 (Extreme) zones.
+            </p>
+          </article>
+
+          <article class="result-card">
+            <img src="/GIS_LAB_WEBSITE_GROUP14/assets/piechart_pm10-DAe4wqvJ.png" alt="PM10 population exposure pie chart">
+            <h3>PM10 Population Exposure</h3>
+            <p>
+              <strong>Low Health Risk:</strong> Coarse particulate matter (PM10) poses a minimal health threat in Serbia. An overwhelming <strong>97.3%</strong> of the population resides in Class 1 (Low) pollution zones, enjoying safe air quality conditions. Only a tiny fraction (<strong>2.69%</strong>) experiences Class 2 (Moderate-Low) exposure.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="fh5co-section summary-section">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Summary &amp; Conclusions</h2>
+        </div>
+        <div class="summary-content">
+          <p>
+            In summary, the spatial analysis of Serbia (2021–2023) reveals a general improvement
+            in atmospheric conditions, characterized by widespread reductions in PM2.5 and PM10,
+            alongside localized NO₂ improvements in the central regions.
+          </p>
+          <p>
+            Our land cover assessment indicates a highly stable landscape overall, though significant
+            urban sprawl is evident, with <strong>72.0%</strong> of newly built areas encroaching
+            upon agricultural lands. Zonal statistics further highlight that existing stable urban
+            cores experienced the smallest mean reduction in NO₂ (<strong>-0.74 µg/m³</strong>),
+            indicating that old city centers remain persistent emission hotspots compared to
+            transitioning areas.
+          </p>
+          <p>
+            Finally, the population exposure assessment exposes a critical public health dichotomy.
+            While NO₂ and coarse particulate matter (PM10) pose minimal to moderate risks to the vast
+            majority of the country, fine particulate matter (<strong>PM2.5</strong>) emerges as the
+            primary environmental hazard. With nearly a quarter of the population exposed to high or
+            extreme PM2.5 concentrations, these findings emphasize the urgent need for targeted
+            environmental policies, stringent emission controls, and sustainable urban planning to
+            mitigate respiratory health risks across Serbia.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <footer id="fh5co-footer"></footer>
+
+  <script src="../assets/js/jquery.min.js"></script>
+  <script src="../assets/js/jquery.easing.1.3.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.waypoints.min.js"></script>
+  <script src="../assets/js/jquery.stellar.min.js"></script>
+  <script src="../assets/js/main.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggleBtn = document.querySelector('.bivariate-toggle-btn');
+      const bivarContent = document.querySelector('.bivariate-content');
+      
+      if (toggleBtn && bivarContent) {
+        toggleBtn.addEventListener('click', function() {
+          bivarContent.classList.toggle('active');
+          const isExpanded = bivarContent.classList.contains('active');
+          toggleBtn.setAttribute('aria-expanded', isExpanded);
+        });
+      }
+    });
+  </script>
+  <script src="../assets/js/footer.js"></script>
+
+</body>
+</html>

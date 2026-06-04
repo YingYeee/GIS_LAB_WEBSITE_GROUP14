@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WebMap | Serbia Air Quality WebGIS</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700" rel="stylesheet" type="text/css">
+
+  <script type="module" crossorigin src="/GIS_LAB_WEBSITE_GROUP14/assets/webgis-SzTntiSO.js"></script>
+  <link rel="stylesheet" crossorigin href="/GIS_LAB_WEBSITE_GROUP14/assets/webgis-D16rCtO5.css">
+  <link rel="stylesheet" crossorigin href="/GIS_LAB_WEBSITE_GROUP14/assets/custom-styles-B_pDqIVA.css">
+</head>
+
+<body>
+  <div id="fh5co-wrap">
+
+    <header id="fh5co-header">
+      <div class="container">
+        <nav class="fh5co-main-nav">
+          <ul>
+            <li><a href="../index.html"><span>Home</span></a></li>
+            <li><a href="workflow.html"><span>Workflow</span></a></li>
+            <li><a href="results.html"><span>Results</span></a></li>
+            <li class="fh5co-active"><a href="webgis.html"><span>WebMap</span></a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Compact WebMap title -->
+    <section class="fh5co-section webmap-intro">
+      <div class="container text-center">
+        <h1>Interactive WebMap</h1>
+        <p>
+          Explore Serbia air quality layers, land cover change and population exposure outputs.
+        </p>
+      </div>
+    </section>
+
+    <!-- WebMap -->
+    <section class="fh5co-section map-section">
+      <div class="container map-container-wide">
+
+        <div class="section-heading" style="display:flex; align-items:flex-start; justify-content:space-between; gap:24px; margin-bottom:15px;">
+          <div>
+            <h2 style="margin-bottom:10px;">Serbia Air Quality WebGIS</h2>
+            <p>
+              Use the layer switcher to explore air quality change maps (AMAC), 
+land cover transitions and population exposure across Serbian municipalities. 
+Toggle layers, click on the map to query values, and use the legend panel to interpret results.
+            </p>
+          </div>
+        </div>
+
+        <div class="map-layout">
+          <div class="map-wrapper">
+            <div id="map"></div>
+          </div>
+
+          <aside id="legend-panel" class="legend-panel">
+            <button id="legend-toggle" class="legend-toggle" type="button">Hide legend</button>
+            <h3 style="font-weight: 520; margin-top: 11px;">Legend</h3>
+
+            <div id="legend-content">
+              <p>
+                Select thematic layers from the layer switcher. Replace the placeholder layer names in
+                <code>assets/js/map.js</code> with your GeoServer workspace and layer names.
+              </p>
+
+              <div class="legend-row">
+                <span class="legend-swatch decrease"></span>
+                Decrease / lower class
+              </div>
+
+              <div class="legend-row">
+                <span class="legend-swatch neutral"></span>
+                Stable / medium class
+              </div>
+
+              <div class="legend-row">
+                <span class="legend-swatch increase"></span>
+                Increase / higher class
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        <div id="popup" class="ol-popup">
+          <a href="#" id="popup-closer" class="ol-popup-closer">×</a>
+          <div id="popup-content"></div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <footer id="fh5co-footer"></footer>
+
+  <script src="../assets/js/jquery.min.js"></script>
+  <script src="../assets/js/jquery.easing.1.3.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.waypoints.min.js"></script>
+  <script src="../assets/js/jquery.stellar.min.js"></script>
+  <script src="../assets/js/main.js"></script>
+
+  <script src="../assets/js/footer.js"></script>
+</body>
+</html>

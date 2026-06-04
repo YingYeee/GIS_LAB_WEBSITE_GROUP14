@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Serbia Air Quality WebGIS</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" crossorigin href="/GIS_LAB_WEBSITE_GROUP14/assets/custom-styles-B_pDqIVA.css">
+</head>
+
+<body>
+  <div id="fh5co-wrap">
+
+    <header id="fh5co-header">
+      <div class="container">
+        <nav class="fh5co-main-nav">
+          <ul>
+            <li class="fh5co-active"><a href="index.html"><span>Home</span></a></li>
+            <li><a href="pages/workflow.html"><span>Workflow</span></a></li>
+            <li><a href="pages/results.html"><span>Results</span></a></li>
+            <li><a href="pages/webgis.html"><span>WebMap</span></a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="fh5co-hero project-hero" style="background-image: url(/GIS_LAB_WEBSITE_GROUP14/assets/hero_1-es1v0llC.jpg);">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1 text-center hero-content">
+            <h1>Serbia Air Quality WebGIS</h1>
+            <p class="hero-subtitle">
+              Mapping air quality, land cover transitions and population exposure using QGIS,
+              GeoServer and OpenLayers.
+            </p>
+            <a class="project-btn primary" href="pages/webgis.html">Open WebMap</a>
+            <a class="project-btn outline" href="pages/workflow.html">View Workflow</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project overview -->
+    <section class="fh5co-section">
+      <div class="container">
+        <div class="row project-overview-row">
+          <div class="col-md-6">
+            <h2>Project Overview</h2>
+            <p>
+              This project investigates air quality patterns in Serbia by combining CAMS European Air Quality
+              Reanalysis data, ESRI 10m Annual Land Cover maps and WorldPop population counts. The final outputs
+              are published through an interactive WebGIS to support spatial exploration of pollution trends, land
+              cover change and population exposure.
+            </p>
+            <p>
+              The workflow focuses on three pollutants: NO₂, PM2.5 and PM10. It includes annual mean aggregation
+              change, land cover transition analysis, zonal statistics and bivariate exposure mapping.
+            </p>
+          </div>
+          <div class="col-md-6">
+            <img src="/GIS_LAB_WEBSITE_GROUP14/assets/preview-DNio03k8.png" alt="Serbia geospatial analysis" class="img-responsive img-card">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key outputs -->
+    <section class="fh5co-section light-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2 text-center section-heading">
+            <h2>Key Outputs</h2>
+          </div>
+        </div>
+
+        <div class="row output-row">
+          <div class="col-md-4">
+            <div class="output-card">
+              <strong>Air Quality</strong>
+              <p>
+                NO₂, PM2.5 and PM10
+                <a href="pages/webgis.html?layer=amac&pollutant=no2">AMAC maps</a>,
+                <a href="pages/webgis.html?layer=concentration&pollutant=no2">concentration maps</a>
+                and zonal statistics.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="output-card">
+              <strong>Land Cover</strong>
+              <p>
+                Serbia
+                <a href="pages/webgis.html?layer=lcc">land cover transition map</a>
+                between 2021 and 2023.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="output-card">
+              <strong>Exposure</strong>
+              <p>
+                <a href="pages/webgis.html?layer=exposure&pollutant=no2">Bivariate maps</a>
+                combining population class and pollutant severity class.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team members -->
+    <section class="fh5co-section team-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1 text-center section-heading">
+            <h2>Team Members</h2>
+              <p>
+                The project was developed collaboratively by M.Sc. Geoinformatics Engineering students at Politecnico di Milano.
+              </p>
+          </div>
+        </div>
+
+        <div class="row team-row">
+          <div class="col-md-4 col-sm-6">
+            <article class="team-card">
+              <img src="/GIS_LAB_WEBSITE_GROUP14/assets/person1-DiOCu1H-.jpg" alt="Team member 1" class="team-photo">
+              <h3>Ying Ye</h3>
+              <p class="team-background">From Zhejiang, China<br>B.Sc. in Geographic Information Science</p>
+              <p class="team-email"><a href="mailto:ying1.ye@mail.polimi.it">ying1.ye@mail.polimi.it</a></p>
+              <p class="team-role">NO₂ Pollutant Analysis & Results Page</p>
+            </article>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <article class="team-card">
+              <img src="/GIS_LAB_WEBSITE_GROUP14/assets/person3-8jO22opp.jpg" alt="Team member 3" class="team-photo">
+              <h3>Seran Park</h3>
+              <p class="team-background">From Seoul, South Korea<br>B.Sc. in Artificial Intelligence</p>
+              <p class="team-email"><a href="mailto:seran.park@mail.polimi.it">seran.park@mail.polimi.it</a></p>
+              <p class="team-role">PM₂.₅ Pollutant Analysis & WebMap Development</p>
+            </article>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <article class="team-card">
+              <img src="/GIS_LAB_WEBSITE_GROUP14/assets/person2-BllRUW-9.jpg" alt="Team member 2" class="team-photo">
+              <h3>Wenqi Yang</h3>
+              <p class="team-background">From Xinjiang, China<br>B.Sc. in Human Geography and Urban Planning</p>
+              <p class="team-email"><a href="mailto:wenqi.yang@mail.polimi.it">wenqi.yang@mail.polimi.it</a></p>
+              <p class="team-role">PM₁₀ Pollutant Analysis & Workflow Page</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer id="fh5co-footer"></footer>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.easing.1.3.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/jquery.waypoints.min.js"></script>
+  <script src="assets/js/jquery.stellar.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/footer.js"></script>
+</body>
+</html>
