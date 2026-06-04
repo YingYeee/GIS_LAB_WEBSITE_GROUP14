@@ -557,35 +557,240 @@ p {
   background-color: var(--project-blue) !important;
 }
 
-#map .layer-switcher .panel {
-  border-color: #f1f5f4;
-  background: #ffffff;
+/* ── Toggle button (collapsed state) ── */
+#map .layer-switcher > button {
+  background-color: #0f3d4c !important;
+  border: none !important;
+  border-radius: 6px !important;
+  width: 34px !important;
+  height: 34px !important;
+  box-shadow: 0 2px 8px rgba(15, 61, 76, 0.25) !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%232a9d8f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='7' height='7'/%3E%3Crect x='14' y='3' width='7' height='7'/%3E%3Crect x='3' y='14' width='7' height='7'/%3E%3Crect x='14' y='14' width='7' height='7'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 18px !important;
 }
-
-#map .layer-switcher.shown.layer-switcher-activation-mode-click > button,
-#map .layer-switcher .group button {
-  background-color: #f7fbfa !important;
-  border: 1px solid #dce9e6;
-  border-radius: 4px;
+ 
+#map .layer-switcher > button:hover,
+#map .layer-switcher > button:focus {
+  background-color: #174f62 !important;
 }
-
+ 
+/* ── Toggle button (shown/open state) ── */
+#map .layer-switcher.shown.layer-switcher-activation-mode-click > button {
+  background-color: #0f3d4c !important;
+  border: none !important;
+  border-radius: 6px !important;
+  width: 34px !important;
+  height: 34px !important;
+}
+ 
 #map .layer-switcher.shown.layer-switcher-activation-mode-click > button:hover,
-#map .layer-switcher.shown.layer-switcher-activation-mode-click > button:focus,
-#map .layer-switcher .group button:hover,
-#map .layer-switcher .group button:focus {
-  background-color: #edf6f4 !important;
+#map .layer-switcher.shown.layer-switcher-activation-mode-click > button:focus {
+  background-color: #174f62 !important;
+}
+ 
+/* ── Panel ── */
+#map .layer-switcher .panel {
+  background: #ffffff !important;
+  border: 1px solid #dde6ea !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 18px rgba(15, 61, 76, 0.09) !important;
+  padding: 0 !important;
+  min-width: 300px !important;
+  max-width: 320px !important;
+  /* overflow-x: hidden !important;
+  overflow-y: auto !important; */
+  font-family: "Work Sans", system-ui, sans-serif !important;
+}
+ 
+/* ── Panel inner scroll area ── */
+#map .layer-switcher .panel ul {
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+  /* max-height: 60vh;
+  overflow-y: auto; */
+}
+ 
+/* ── Group title label ── */
+#map .layer-switcher .panel li.group > label {
+  display: flex !important;
+  align-items: center !important;
+  padding: 8px 14px 4px !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: #0f3d4c !important;
+  background: #ffffff !important;
+  border-bottom: 1px solid #eef1f3 !important;
+  cursor: pointer !important;
+  user-select: none !important;
+  line-height: 1.4 !important;
+  padding-right: 2.2em !important;
 }
 
-#map .layer-switcher li.group > label {
-  padding-right: 2.2em;
+#map .layer-switcher .panel li.group.layer-switcher-fold > label {
+  border-bottom: none !important;
 }
-
-#map .layer-switcher .group button {
-  left: auto;
-  right: 0;
-  width: 1.35em;
-  height: 1.35em;
-  background-position: center center;
+ 
+#map .layer-switcher .panel li.group > label:hover {
+  background: #f5fafa !important;
+}
+ 
+/* ── Group collapse button ── */
+#map .layer-switcher .panel .group button {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  width: 1.35em !important;
+  height: 1.35em !important;
+  min-width: unset !important;
+  padding: 0 !important;
+  left: auto !important;
+  right: 0 !important;
+  opacity: 0.6 !important;
+  filter: none !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%232a9d8f' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: 12px !important;
+  transition: transform 0.22s ease !important;
+}
+ 
+#map .layer-switcher .panel .group button:hover,
+#map .layer-switcher .panel .group button:focus {
+  background-color: transparent !important;
+  opacity: 1 !important;
+}
+ 
+/* ── Layer items ── */
+#map .layer-switcher .panel li:not(.group) {
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 !important;
+}
+ 
+#map .layer-switcher .panel li:not(.group) label {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 4px 14px 4px 22px !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  color: #3a5560 !important;
+  line-height: 1.35 !important;
+  cursor: pointer !important;
+  width: 100% !important;
+  transition: background 0.15s !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+ 
+#map .layer-switcher .panel li:not(.group) label:hover {
+  background: #f0faf8 !important;
+}
+ 
+/* ── Active / visible layer ── */
+#map .layer-switcher .panel input[type="checkbox"]:checked + label,
+#map .layer-switcher .panel input[type="radio"]:checked + label {
+  background: #e8f5f3 !important;
+  color: #0f3d4c !important;
+  font-weight: 600 !important;
+}
+ 
+/* ── Checkbox ── */
+#map .layer-switcher .panel input[type="checkbox"],
+#map .layer-switcher .panel input[type="radio"] {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  width: 14px !important;
+  height: 14px !important;
+  border: 1.5px solid #b8c8ce !important;
+  border-radius: 3px !important;
+  background: #fff !important;
+  flex-shrink: 0 !important;
+  cursor: pointer !important;
+  position: relative !important;
+  transition: background 0.15s, border-color 0.15s !important;
+  margin: 0 !important;
+}
+ 
+#map .layer-switcher .panel input[type="radio"] {
+  border-radius: 50% !important;
+}
+ 
+#map .layer-switcher .panel input[type="checkbox"]:checked,
+#map .layer-switcher .panel input[type="radio"]:checked {
+  background: #2a9d8f !important;
+  border-color: #2a9d8f !important;
+}
+ 
+#map .layer-switcher .panel input[type="checkbox"]:checked::after {
+  content: "" !important;
+  display: block !important;
+  width: 7px !important;
+  height: 4px !important;
+  border-left: 2px solid #fff !important;
+  border-bottom: 2px solid #fff !important;
+  transform: rotate(-45deg) translateY(-1px) !important;
+  position: absolute !important;
+  top: 3px !important;
+  left: 2px !important;
+}
+ 
+#map .layer-switcher .panel input[type="radio"]:checked::after {
+  content: "" !important;
+  display: block !important;
+  width: 7px !important;
+  height: 7px !important;
+  border-radius: 50% !important;
+  background: #fff !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+ 
+/* ── Divider between groups ── */
+#map .layer-switcher .panel li.group + li.group {
+  border-top: 1px solid #eef1f3 !important;
+}
+ 
+/* ── Scrollbar ── */
+#map .layer-switcher .panel ul::-webkit-scrollbar {
+  width: 4px !important;
+}
+#map .layer-switcher .panel ul::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+#map .layer-switcher .panel ul::-webkit-scrollbar-thumb {
+  background: #c8d8de !important;
+  border-radius: 2px !important;
+}
+#map .layer-switcher .panel ul::-webkit-scrollbar-thumb:hover {
+  background: #2a9d8f !important;
+}
+ 
+/* ── Hide group-level checkbox (ol-layerswitcher default) ── */
+#map .layer-switcher .panel li.group > input[type="checkbox"] {
+  display: none !important;
+}
+ 
+/* ── Panel solid background (no map bleed) ── */
+#map .layer-switcher .panel {
+  background: #ffffff !important;
+  border-radius: 10px !important;
+  border: 1px solid #dde6ea !important;
+  box-shadow: 0 4px 18px rgba(15, 61, 76, 0.12) !important;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+ 
+/* ── Group label solid background ── */
+#map .layer-switcher .panel li.group > label {
+  background: #ffffff !important;
 }
 
 .custom-control {
